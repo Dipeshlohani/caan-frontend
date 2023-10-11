@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  background-color: #efefef;
+  height: 100px;
+  width: 100%;
+}
+
+.text {
+  display: flex;
+  font-weight: bold;
+  color: black;
+}
+
+.btn {
+  background-color: #2161cd;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  text-weight: bold;
+  padding-left: 10px;
+  /* width: 200px; */
+}
