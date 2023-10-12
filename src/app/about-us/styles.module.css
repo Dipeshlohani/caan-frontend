@@ -2,13 +2,13 @@
   text-align: center;
   padding-top: 80px;
   margin-bottom: -160px;
-
+  color:black;
   font:inter;
   font-weight: 700;
   font-size: 36px;
 }
 /* App.css */
-.grid-container {
+.gridcontainer {
   display: flex;
   grid-gap: 40px;
   justify-content: center; 
@@ -16,10 +16,10 @@
   height: 100vh;
 }
 
-.text-field-container {
+.textfieldcontainer {
   display:flex;
   border: 1px solid #c7c7c7;
-  background-color: transparent;
+  /* background-color: transparent; */
   padding:15px;
   height: 350px;
   width: 350px; 
@@ -28,22 +28,24 @@
 }
 
 
-.text-field {
+.textfield {
   display: flex;
   flex-direction: column;
 }
 
 
-.text-content:first-child {
+.textcontent:first-child {
   font:inter;
   font-size: 24px;
   margin-bottom: 10px;
   font-weight: 700;
   line-height: 29.05px;
+  color:black;
 }
 
-.text-content:last-child {
+.textcontent:last-child {
   margin-bottom: 0; 
+  color:black;
   font:inter;
   font-weight: 400;
   font-size: 16px;
@@ -52,7 +54,7 @@
 
 
 /* App.css */
-.team-container {
+.teamcontainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
@@ -60,7 +62,7 @@
   padding: 230px;
 }
 
-.team-field-container {
+.teamfieldcontainer {
   text-align: center;
   border: 1px solid #c7c3c3;
   background-color: transparent;
@@ -70,7 +72,7 @@
   max-height:300px;
 }
 
-.team-image img {
+.teamimage img {
   padding:20px;
   width: 147px;
   height: 147px;
@@ -78,7 +80,7 @@
   margin-bottom: 10px;
 }
 
-.text-name {
+.textname {
   font:inter;
   font-weight: 600;
   font-size:20px;
@@ -88,7 +90,7 @@
  
 }
 
-.text-post {
+.textpost {
   font: inter;
   font-weight: 400;
   font-size: 16px;
@@ -99,52 +101,56 @@
 }
 
 /* App.css */
-.whole-container {
+.wholecontainer {
   display: flex;
   align-items: flex-start;
-  padding: 10px;
+  padding: 65px;
+  padding-left: 100px;
 }
 
-.image-cont {
-  width: 517px;
-  height:447px; /* Set the width to 40% of the container */
+.imagecont {
+  width: 417px;
+  height:347px; /* Set the width to 40% of the container */
   margin-right: 20px; 
   margin-left: 140px;
 }
 
-.image-cont img {
+.imagecont img {
   width: 100%;
   height: auto;
 }
 
-.right-field {
-  padding:80px;
+.rightfield {
+  max-width: 550px;
+  padding:10px;
   flex: 1;
   display: flex;
   flex-direction: column; 
 }
 
-.top-title {
+.toptitle {
+  color:black;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.top-desc {
+.topdesc {
+  padding-top:15px;
   font-size: 16px;
   color: #333;
   line-height: 1.5;
 }
 
 /* App.css */
-.complete-container {
+.completecontainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
 
-.msg-container {
+.msgcontainer {
   padding:80px;
   max-width: 717px;
   flex:1;
@@ -152,25 +158,28 @@
   flex-direction: column;
 }
 
-.msg-title {
+.msgtitle {
+  font:inter;
+  color:black;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.msg-desc {
+.msgdesc {
   font-size: 16px;
   color: #333;
   line-height: 1.5;
 }
 
-.chairman-name {
+.chairmanname {
   font-size: 18px;
   font-weight: bold;
   margin-top: 20px;
+  color: black;
 }
 
-.chairman-image img {
+.chairmanimage img {
   width: 512px; 
   height: 712px;
 }
