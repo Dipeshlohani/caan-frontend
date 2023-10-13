@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import { NextPage } from "next";
 
 const AboutUs = () => {
-  const [topData, setTopData] = useState({ TopTitle: "", TopDesc: "", TopImage: "", CardTitle1: "", });
+  const [topData, setTopData] = useState({ TopTitle: "", TopDesc: "", TopImage: "", CardTitle1: "", CardDesc1: "",CardTitle2: "", CardDesc2: "",CardTitle3: "", CardDesc3: "", HeadMsgTitle: "", HeadMsgDesc: "", HeadName: "", HeadImage: "", });
   
   useEffect(() => {
    fetch("http://localhost:1337/api/about-uses?populate=*")
@@ -12,12 +12,22 @@ const AboutUs = () => {
       .then((data) => {
         const topItem = data.data[0];
         if (topItem) {
-          const imageUrl = topItem.attributes.TopImage.data.attributes.formats.small.url;
+          const imageUrl = topItem.attributes.TopImage.data.attributes.url;
+          const headimage = topItem.attributes.HeadImage.data.attributes.url;
           setTopData({
             TopTitle: topItem.attributes.TopTitle,
             TopDesc: topItem.attributes.TopDesc,
             TopImage: imageUrl,
             CardTitle1: topItem.attributes.CardTitle1,
+            CardTitle2: topItem.attributes.CardTitle2,
+            CardTitle3: topItem.attributes.CardTitle3,
+            CardDesc1: topItem.attributes.CardDesc1,
+            CardDesc2: topItem.attributes.CardDesc2,
+            CardDesc3: topItem.attributes.CardDesc3,
+            HeadMsgTitle: topItem.attributes.HeadMsgTitle,
+            HeadMsgDesc: topItem.attributes.HeadMsgDesc,
+            HeadName: topItem.attributes.HeadName,
+            HeadImage: headimage,
           });
         }
       })
@@ -33,34 +43,28 @@ const AboutUs = () => {
           <div className={styles.textfield}>
             <div className={styles.textcontent}>{topData.CardTitle1}</div>
             <div className={styles.textcontent}>
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
+             {topData.CardDesc1}
             </div>
           </div>
         </div>
         <div className={styles.textfieldcontainer}>
           <div className={styles.textfield}>
-            <div className={styles.textcontent}>Your title text goes here</div>
+            <div className={styles.textcontent}>{topData.CardTitle2}</div>
             <div className={styles.textcontent}>
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
+            {topData.CardDesc2}
             </div>
           </div>
         </div>
         <div className={styles.textfieldcontainer}>
           <div className={styles.textfield}>
-            <div className={styles.textcontent}>Your title text goes here</div>
+            <div className={styles.textcontent}>{topData.CardTitle3}</div>
             <div className={styles.textcontent}>
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
+            {topData.CardDesc3}
             </div>
           </div>
         </div>
       </div>
-      <ChairmanMsg />
+      <ChairmanMsg topData={topData} />
       <TeamField />
     </>
   );
@@ -94,17 +98,23 @@ interface Props{
  topData: {
   TopTitle: string,
   TopDesc: string,
-  TopImage: string
+  TopImage: string,
+  HeadMsgTitle: string,
+  HeadMsgDesc: string,
+  HeadName:string,
+  HeadImage:string,
  }
 }
 
 const TopMessage: NextPage<Props> = (props) => {
   const { topData } = props;
+  // console.log(topData.TopImage);
+  let img_url = `http://localhost:1337${topData.TopImage}`
   return (
     <div>
       <div className={styles.wholecontainer}>
         <div className={styles.imagecont}>
-        <img src={topData.TopImage} alt="image" />
+        <img src={img_url} alt="image" />
         </div>
         <div className={styles.rightfield}>
           <div className={styles.toptitle}>{topData.TopTitle}</div>
@@ -115,7 +125,9 @@ const TopMessage: NextPage<Props> = (props) => {
   );
 };
 
-const ChairmanMsg = () => {
+const ChairmanMsg: NextPage<Props> = (props) => {
+  const { topData } = props;
+  let img_url = `http://localhost:1337${topData.HeadImage}`
   return(
     <div>
       <div className={styles.completecontainer}>
@@ -123,21 +135,17 @@ const ChairmanMsg = () => {
       
       
       <div className={styles.msgtitle}>
-        title
+        {topData.HeadMsgTitle}
       </div>
       <div className={styles.msgdesc}>
-      Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.  Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
-              Your description text goes here. Your description text goes here.
+    {topData.HeadMsgDesc}
       </div>
       <div className={styles.chairmanname}>
-      name
+      {topData.HeadName}
       </div>
       </div>
       <div className={styles.chairmanimage}>
-        <img src="/rowwdy.jpg" alt="image" />
+        <img src={img_url} alt="image" />
       </div>
     </div>
     </div>
