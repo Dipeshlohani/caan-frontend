@@ -5,14 +5,27 @@ import { TbPlaneTilt } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { CiServer } from "react-icons/ci";
+import CardSlider from "../../slider/index";
+
+const sampleData = [
+  { Icon: TbPlaneTilt, title: "Air Traffic System" },
+  { Icon: RiComputerLine, title: "Airport Info System" },
+  { Icon: CiServer, title: "Central Navigation System" },
+  { Icon: FaPlaneDeparture, title: "Search And Rescue" },
+  { Icon: TbPlaneTilt, title: "Air Traffic System" },
+  { Icon: TbPlaneTilt, title: "Air Traffic System" },
+]
 
 const DashboardCard = () => {
   return (
-    <div className={styles.wrapper}>
-      <Card Icon={TbPlaneTilt} title="Air Traffic System" />
-      <Card Icon={RiComputerLine} title="Airport Info System" />
-      <Card Icon={CiServer} title="Central Navigation System" />
-      <Card Icon={FaPlaneDeparture} title="Search And Rescue" />
+    <div className={styles.container}>
+      <CardSlider>
+        {
+          sampleData.map(item => (
+            <Card key={item.title} Icon={item.Icon} title={item.title} />
+          ))
+        }
+      </CardSlider>
     </div>
   )
 }
