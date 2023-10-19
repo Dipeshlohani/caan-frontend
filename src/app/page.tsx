@@ -1,4 +1,5 @@
 'use client';
+
 import { AppProps } from "next/app";
 import React, { useState, useEffect } from "react";
 import styles from "./page.module.css";
@@ -10,9 +11,8 @@ import Subscribe from "@/components/subscribe/Subscribe";
 export default function Home() {
   return (
     <div className={styles.main}>
-      {/* <SearchBox />
-      <AboutCard /> */}
       <DashboardCard />
+      <AboutCard />
       <Subscribe />
     </div>
   )
