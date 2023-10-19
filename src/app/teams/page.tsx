@@ -38,3 +38,5 @@ const OurTeam = () => {
 };
 
 export default OurTeam;
+
+// pagination = http://localhost:1337/api/our-teams?populate=TeamImage&pagination[page]=1&pagination[pageSize]=2
