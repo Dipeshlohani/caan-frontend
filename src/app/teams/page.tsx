@@ -7,7 +7,7 @@ const OurTeam = () => {
     const [teamData, setTeamData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:1337/api/our-teams?populate=*")
+        fetch("http://localhost:1337/api/teams?populate=*")
             .then((response) => response.json())
             .then((data) => {
                 // Assuming data is an array of team items
@@ -21,14 +21,14 @@ const OurTeam = () => {
     return (
         <>
             <div className={styles.teamcontainer}>
-                {teamData.map((teamItem, index) => (
+                {teamData?.map((teamItem, index) => (
                     <div className={styles.teamfieldcontainer} key={index}>
                         <div className={styles.teamfield}>
                             <div className={styles.teamimage}>
-                                <img src={`http://localhost:1337${teamItem.attributes.TeamImage.data.attributes.url}`} alt="image" />
+                                <img src={`http://localhost:1337${teamItem.attributes.img_url.data.attributes.url}`} alt="image" />
                             </div>
-                            <div className={styles.textname}>{teamItem.attributes.TeamName}</div>
-                            <div className={styles.textpost}>{teamItem.attributes.Post}</div>
+                            <div className={styles.textname}>{teamItem.attributes.name}</div>
+                            <div className={styles.textpost}>{teamItem.attributes.designation}</div>
                         </div>
                     </div>
                 ))}
