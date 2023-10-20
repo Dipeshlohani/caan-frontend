@@ -1,36 +1,140 @@
 'use client';
-import CardSlider from "../../components/slider";
-import { Card } from "@/components/card/dashboard/Card";
-import { TbPlaneTilt } from "react-icons/tb";
-import { RiComputerLine } from "react-icons/ri";
-import { FaPlaneDeparture } from "react-icons/fa";
-import { CiServer } from "react-icons/ci";
+import React from 'react';
+import {
+  Box,
+  Typography,
+  Stack,
+  Button,
+  Card,
+  CardActions,
+  CardMedia,
+  CardContent,
+  Container,
+  Grid,
+} from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Layout from "../../components/layout";
 
+async function getData() {
+  const res = await fetch('http://localhost:1337/api/activities?populate=*')
 
-const sampleData = [
-  { Icon: TbPlaneTilt, title: "Air Traffic System" },
-  { Icon: RiComputerLine, title: "Airport Info System" },
-  { Icon: CiServer, title: "Central Navigation System" },
-  { Icon: FaPlaneDeparture, title: "Search And Rescue" },
-  { Icon: TbPlaneTilt, title: "Something Traffic System" },
-  { Icon: TbPlaneTilt, title: "Next Traffic System" },
-]
-export default function Activities() {
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+
+  return res.json()
+}
+type Activity = {
+  name: string;
+  description: string;
+  date: Date;
+  img_url: string;
+}
+const Home = async () => {
+  let data = await getData();
+  type Data = {
+    date: Date,
+    img_url: string;
+    name: string;
+  }
+  console.log(data.data);
   return (
-    <>
-      <CardSlider>
-        {
-          sampleData.map(item => (
-            <Card key={item.title} Icon={item.Icon} title={item.title} />
-          ))
-        }
-      </CardSlider>
-      <style jsx global>{`
-        @import "~slick-carousel/slick/slick.css"; 
-        @import "~slick-carousel/slick/slick-theme.css";
-       
-         `}
-      </style>
-    </>
+    <Layout>
+      <br />
+      <br />
+      <Box
+        sx={{
+          pb: { xs: '4rem', md: '7.5rem' },
+          pt: { xs: '3rem', md: '4.313rem' },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container rowSpacing={{ xs: 3, md: 5 }} columnSpacing={0.5}>
+            {data.data.map(data => (
+              <Grid item xs={12} sm={6} md={3}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="236"
+                    image="http://localhost:1337/uploads/Rectangle_14_26badd6162.png"
+                    alt="image"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" color="primary">
+                      {data.attributes.date}
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {data.attributes.name}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))};
+            {data.data.map(data => (
+              <Grid item xs={12} sm={6} md={3}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="236"
+                    image="http://localhost:1337/uploads/Rectangle_14_26badd6162.png"
+                    alt="image"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" color="primary">
+                      {data.attributes.date}
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {data.attributes.name}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))};
+            {data.data.map(data => (
+              <Grid item xs={12} sm={6} md={3}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="236"
+                    image="http://localhost:1337/uploads/Rectangle_14_26badd6162.png"
+                    alt="image"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" color="primary">
+                      {data.attributes.date}
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {data.attributes.name}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))};
+          </Grid>
+        </Container>
+      </Box>
+    </Layout>
+
   )
 }
+
+export default Home
