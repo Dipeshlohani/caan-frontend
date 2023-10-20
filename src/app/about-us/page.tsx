@@ -4,6 +4,17 @@ import styles from "./styles.module.css";
 import { NextPage } from "next";
 
 const AboutUs = () => {
+  const [aboutUsData, setAboutUsData] = useState({
+    chairman_img_url: "",
+    chairman_msg: "",
+    chairman_name: '',
+    description: "",
+    mission: "",
+    goal: "",
+    title: "",
+    vision: "",
+    img_url: ""
+  });
   const [teamData, setTeamData] = useState([]);
   const [topData, setTopData] = useState({
     TopTitle: "",
@@ -19,38 +30,27 @@ const AboutUs = () => {
     HeadMsgDesc: "",
     HeadName: "",
     HeadImage: "",
-    // TeamName: "",
-    // Post: "",
-    // TeamImage: ""
   });
 
-  // const OurTeam = () => {
-  //   const [teamData, setTeamData] = useState([]);
-
-  //   useEffect(() => {
-  //     fetch("http://localhost:1337/api/our-teams?populate=*")
-  //         .then((response) => response.json())
-  //         .then((data) => {
-  //             // Assuming data is an array of team items
-  //             setTeamData(data.data);
-  //         })
-  //         .catch((error) => {
-  //             console.error("Error fetching data:", error);
-  //         });
-  // }, []);
-
   useEffect(() => {
-    Promise.all([
-      fetch("http://localhost:1337/api/about-uses?populate=*"),
-      fetch("http://localhost:1337/api/our-teams?populate=*")
-    ])
-      .then((responses) => Promise.all(responses.map((res) => res.json())))
-      .then(([aboutUsData, teamsData]) => {
+    fetch("http://localhost:1337/api/about-us?populate=*")
+      .then(res => res.json())
+      .then(aboutUsData => {
+        console.log(aboutUsData, '----------- ')
+        setAboutUsData({
+          chairman_img_url: 'http://localhost:1337' + aboutUsData.data.attributes.chairman_img_url.data.attributes.url,
+          chairman_msg: aboutUsData.data.attributes.chairman_msg,
+          chairman_name: aboutUsData.data.attributes.chairman_name,
+          description: aboutUsData.data.attributes.description,
+          mission: aboutUsData.data.attributes.mission,
+          goal: aboutUsData.data.attributes.goal,
+          title: aboutUsData.data.attributes.title,
+          vision: aboutUsData.data.attributes.vision,
+          img_url: 'http://localhost:1337' + aboutUsData.data.attributes.img_url.data.attributes.url
+        });
         const topItem = aboutUsData.data[0];
         const imageUrl = topItem.attributes.TopImage.data.attributes.url;
         const headimage = topItem.attributes.HeadImage.data.attributes.url;
-        const teamimage = teamsData.data[3].attributes.TeamImage.data.attributes.url;
-        console.log(teamsData.data)
         setTopData({
           TopTitle: topItem.attributes.TopTitle,
           TopDesc: topItem.attributes.TopDesc,
@@ -74,80 +74,107 @@ const AboutUs = () => {
         console.error("Error fetching data:", error);
       });
 
-      fetch("http://localhost:1337/api/our-teams?populate=*")
-      .then((response) => response.json())
-      .then((data) => {
-          // Assuming data is an array of team items
-          setTeamData(data.data);
-      })
-      .catch((error) => {
-          console.error("Error fetching data:", error);
-      });
+    // fetch("http://localhost:1337/api/our-teams?populate=*")
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     // Assuming data is an array of team items
+    //     setTeamData(data.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching data:", error);
+    //   });
   }, []);
 
-//   return (
-//     <>
-//         <div className={styles.teamcontainer}>
-//             {teamData.map((teamItem, index) => (
-//                 <div className={styles.teamfieldcontainer} key={index}>
-//                     <div className={styles.teamfield}>
-//                         <div className={styles.teamimage}>
-//                             <img src={`http://localhost:1337${teamItem.attributes.TeamImage.data.attributes.url}`} alt="image" />
-//                         </div>
-//                         <div className={styles.textname}>{teamItem.attributes.TeamName}</div>
-//                         <div className={styles.textpost}>{teamItem.attributes.Post}</div>
-//                     </div>
-//                 </div>
-//             ))}
-//         </div>
-//     </>
-// );
-// };
   return (
     <>
-    <TopMessage topData={topData} />
-
+      <div>
+        <div className={styles.wholecontainer}>
+          <div className={styles.imagecont}>
+            <img src={aboutUsData.img_url} alt="image" />
+          </div>
+          <div className={styles.rightfield}>
+            <div className={styles.toptitle}>{aboutUsData.title}</div>
+            <div className={styles.topdesc}>{aboutUsData.description}</div>
+          </div>
+        </div>
+      </div>
       <div className={styles.gridcontainer}>
         <div className={styles.textfieldcontainer}>
           <div className={styles.textfield}>
-            <div className={styles.textcontent}>{topData.CardTitle1}</div>
+            <div className={styles.textcontent}>Our Mission</div>
             <div className={styles.textcontent}>
-             {topData.CardDesc1}
+              {aboutUsData.mission}
             </div>
           </div>
         </div>
         <div className={styles.textfieldcontainer}>
           <div className={styles.textfield}>
-            <div className={styles.textcontent}>{topData.CardTitle2}</div>
+            <div className={styles.textcontent}>Our Vision</div>
             <div className={styles.textcontent}>
-            {topData.CardDesc2}
+              {aboutUsData.vision}
             </div>
           </div>
         </div>
         <div className={styles.textfieldcontainer}>
           <div className={styles.textfield}>
-            <div className={styles.textcontent}>{topData.CardTitle3}</div>
+            <div className={styles.textcontent}>Our Goal</div>
             <div className={styles.textcontent}>
-            {topData.CardDesc3}
+              {aboutUsData.goal}
             </div>
           </div>
         </div>
       </div>
-      <ChairmanMsg topData={topData} />
-      {/* <TeamField topData={topData}/> */}
-      <div className={styles.teamcontainer}>
-                {teamData.map((teamItem, index) => (
-                    <div className={styles.teamfieldcontainer} key={index}>
-                        <div className={styles.teamfield}>
-                            <div className={styles.teamimage}>
-                                <img src={`http://localhost:1337${teamItem.attributes.TeamImage.data.attributes.url}`} alt="image" />
-                            </div>
-                            <div className={styles.textname}>{teamItem.attributes.TeamName}</div>
-                            <div className={styles.textpost}>{teamItem.attributes.Post}</div>
-                        </div>
-                    </div>
-                ))}
+
+      {/* <TopMessage topData={topData} /> */}
+
+      <div>
+        <div className={styles.completecontainer}>
+          <div className={styles.msgcontainer}>
+
+
+            <div className={styles.msgtitle}>
+              Message from Our Head
             </div>
+            <div className={styles.msgdesc}>
+              {aboutUsData.chairman_msg}
+            </div>
+            <div className={styles.chairmanname}>
+              {aboutUsData.chairman_name}
+            </div>
+          </div>
+          <div className={styles.chairmanimage}>
+            <img src={aboutUsData.chairman_img_url} alt="image" />
+          </div>
+        </div>
+      </div>
+      {/* <div className={styles.teamcontainer}>
+        {teamData?.map((teamItem, index) => (
+          <div className={styles.teamfieldcontainer} key={index}>
+            <div className={styles.teamfield}>
+              <div className={styles.teamimage}>
+                <img src={`http://localhost:1337${teamItem.attributes.TeamImage.data.attributes.url}`} alt="image" />
+              </div>
+              <div className={styles.textname}>{teamItem.attributes.TeamName}</div>
+              <div className={styles.textpost}>{teamItem.attributes.Post}</div>
+            </div>
+          </div>
+        ))}
+      </div> */}
+      {/* <ChairmanMsg topData={topData} /> */}
+      {/* <TeamField topData={topData}/> */}
+      {/* <div className={styles.teamcontainer}>
+        {teamData?.map((teamItem, index) => (
+          <div className={styles.teamfieldcontainer} key={index}>
+            <div className={styles.teamfield}>
+              <div className={styles.teamimage}>
+                <img src={`http://localhost:1337${teamItem.attributes.TeamImage.data.attributes.url}`} alt="image" />
+              </div>
+              <div className={styles.textname}>{teamItem.attributes.TeamName}</div>
+              <div className={styles.textpost}>{teamItem.attributes.Post}</div>
+            </div>
+          </div>
+        ))}
+      </div> */}
     </>
   );
 };
@@ -180,19 +207,19 @@ const AboutUs = () => {
 
 
 
-interface Props{
- topData: {
-  TopTitle: string,
-  TopDesc: string,
-  TopImage: string,
-  HeadMsgTitle: string,
-  HeadMsgDesc: string,
-  HeadName:string,
-  HeadImage:string,
-  // TeamName: string,
-  // Post: string,
-  // TeamImage: string,
- }
+interface Props {
+  topData: {
+    TopTitle: string,
+    TopDesc: string,
+    TopImage: string,
+    HeadMsgTitle: string,
+    HeadMsgDesc: string,
+    HeadName: string,
+    HeadImage: string,
+    // TeamName: string,
+    // Post: string,
+    // TeamImage: string,
+  }
 }
 
 const TopMessage: NextPage<Props> = (props) => {
@@ -203,7 +230,7 @@ const TopMessage: NextPage<Props> = (props) => {
     <div>
       <div className={styles.wholecontainer}>
         <div className={styles.imagecont}>
-        <img src={img_url} alt="image" />
+          <img src={img_url} alt="image" />
         </div>
         <div className={styles.rightfield}>
           <div className={styles.toptitle}>{topData.TopTitle}</div>
@@ -217,30 +244,30 @@ const TopMessage: NextPage<Props> = (props) => {
 const ChairmanMsg: NextPage<Props> = (props) => {
   const { topData } = props;
   let img_url = `http://localhost:1337${topData.HeadImage}`
-  return(
+  return (
     <div>
       <div className={styles.completecontainer}>
-      <div className={styles.msgcontainer}>
-      
-      
-      <div className={styles.msgtitle}>
-        {topData.HeadMsgTitle}
+        <div className={styles.msgcontainer}>
+
+
+          <div className={styles.msgtitle}>
+            {topData.HeadMsgTitle}
+          </div>
+          <div className={styles.msgdesc}>
+            {topData.HeadMsgDesc}
+          </div>
+          <div className={styles.chairmanname}>
+            {topData.HeadName}
+          </div>
+        </div>
+        <div className={styles.chairmanimage}>
+          <img src={img_url} alt="image" />
+        </div>
       </div>
-      <div className={styles.msgdesc}>
-    {topData.HeadMsgDesc}
-      </div>
-      <div className={styles.chairmanname}>
-      {topData.HeadName}
-      </div>
-      </div>
-      <div className={styles.chairmanimage}>
-        <img src={img_url} alt="image" />
-      </div>
-    </div>
     </div>
   );
-  
-  };
+
+};
 
 
 export default AboutUs;
