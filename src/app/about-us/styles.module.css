@@ -1,12 +1,4 @@
-.App {
-  text-align: center;
-  padding-top: 80px;
-  margin-bottom: -160px;
-  color:black;
-  font:inter;
-  font-weight: 700;
-  font-size: 36px;
-}
+
 /* App.css */
 .gridcontainer {
   display: flex;
@@ -151,6 +143,8 @@
 }
 
 .msgcontainer {
+  position:relative;
+  bottom: 130px;
   padding:80px;
   max-width: 717px;
   flex:1;
@@ -182,4 +176,43 @@
 .chairmanimage img {
   width: 512px; 
   height: 712px;
+}
+.backgroundBox {
+  width: 528px;
+  height: 584px;
+  background-color: #2161CD;
+  position: absolute;
+  z-index: -1;
+  bottom : -1465px;
+}
+
+.teamTitle {
+  text-align: center;
+  padding-top: 80px;
+  margin-bottom: -160px;
+  color:black;
+  font:inter;
+  font-weight: 700;
+  font-size: 36px;
+}
+.goals {
+  display: none;
+  color: black;
+}
+
+.teamfieldcontainer:hover .goals {
+  display: block;
+  position: relative;
+}
+
+.teamfieldcontainer .goals {
+  display: block;
+  position: absolute;
+  right: -150px; /* Adjust the distance from the left side */
+  top: -230px;
+  background-color: white; /* Set the background color of the rectangle to white */
+  padding: 10px;
+  border: 1px solid black; /* Add a border around the rectangle */
+  border-radius: 5px; /* Optional: Add rounded corners to the rectangle */
+  color: black; /* Set the text color to black */
 }
