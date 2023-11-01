@@ -1,9 +1,20 @@
 'use client';
 import React, { useEffect, useState } from "react";
-import { styled } from '@mui/system';
-import { Grid, Typography } from '@mui/material';
+import { styled ,ThemeProvider, createTheme } from '@mui/system';
+import { Box, Grid, Typography } from '@mui/material';
+import Container from '@mui/material/Container';
 
-const Container = styled('div')({
+
+const StyledContainer = styled(Container)({
+  paddingLeft: '250px', // Add space on the left
+  paddingRight: '250px',
+  font: 'inter',
+});
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ['Seaweed Script', 'cursive'].join(','),
+  },
 });
 
 const AboutUs = () => {
@@ -56,8 +67,9 @@ const AboutUs = () => {
   }, []);
 
   return (
-<Container >
-      <Grid container spacing={2}>
+    
+<StyledContainer >
+      <Grid container spacing={2} sx={{padding:'70px 0'}}>
         <Grid item xs={12} sm={6} md={4}>
           <img src={aboutUsData.img_url} alt="image" style={{ width: '100%', height: 'auto' }} />
         </Grid>
@@ -67,89 +79,118 @@ const AboutUs = () => {
             {aboutUsData.title}
           </Typography> 
           
-          <Typography variant="body1" sx={{color:'black'}}>
+          <Typography variant="body1" sx={{color:'black' , lineHeight:'38px'}}>
             {aboutUsData.description}
           </Typography>
         </Grid>
       </Grid>
 
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={4}>
-          <div>
-            <Typography variant="h6" sx={{color:'black'}}>Our Mission</Typography>
-            <Typography variant="body1" sx={{color:'black'}}>{aboutUsData.mission}</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <div>
-            <Typography variant="h6" sx={{color:'black'}}>Our Vision</Typography>
-            <Typography variant="body1" sx={{color:'black'}}>{aboutUsData.vision}</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <div>
-            <Typography variant="h6" sx={{color:'black'}}>Our Goal</Typography>
-            <Typography variant="body1" sx={{color:'black'}}>{aboutUsData.goal}</Typography>
-          </div>
-        </Grid>
+      <Grid container spacing={2} sx={{padding:'35px 0'}}>
+      <Grid item xs={12} sm={4}>
+        <Box sx={{ margin: 1, border: "1px solid #C7C7C7", padding: 2, borderRadius:'9px', height:'330px'}}>
+          <Typography variant="h6" sx={{ color: "black", fontWeight:'750' }}>Our Mission</Typography>
+          <Typography variant="body1" sx={{ color: "black", lineHeight:'41.28px', padding:'20px 0px' }}>{aboutUsData.mission}</Typography>
+        </Box>
       </Grid>
-
-         <Grid container spacing={2}>
-      <Grid item xs={12} sm={6} md={8} sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Typography variant="h4" sx={{ marginBottom: '10px', color: 'black', fontWeight: 'bold' }}>
-          Message from Our Head
-        </Typography>
-        <Typography variant="body1" sx={{ color: 'black' }}>
-          {aboutUsData.chairman_msg}
-        </Typography>
-        <Typography variant="subtitle1" sx={{ color: 'black' }}>
-          {aboutUsData.chairman_name}
-        </Typography>
+      <Grid item xs={12} sm={4}>
+        <Box sx={{ margin: 1, border: "1px solid #C7C7C7", padding: 2,  borderRadius:'9px', height:'330px' }}>
+          <Typography variant="h6" sx={{ color: "black" , fontWeight:'750' }}>Our Vision</Typography>
+          <Typography variant="body1" sx={{ color: "black", lineHeight:'41.28px', padding:'20px 0px' }}>{aboutUsData.vision}</Typography>
+        </Box>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
-        <div style={{ background: '#2161CD', width: '100%', height: '100%', position: 'absolute', zIndex: -1 }} />
-        <img src={aboutUsData.chairman_img_url} alt="image" style={{ width: '100%', height: 'auto' }} />
+      <Grid item xs={12} sm={4}>
+        <Box sx={{ margin: 1, border: "1px solid #C7C7C7", padding: 2 , borderRadius:'9px', height:'330px' }}>
+          <Typography variant="h6" sx={{ color: "black" , fontWeight:'750' }}>Our Goal</Typography>
+          <Typography variant="body1" sx={{ color: "black", lineHeight:'41.28px', padding:'20px 0px' }}>{aboutUsData.goal}</Typography>
+        </Box>
       </Grid>
     </Grid>
 
-      <Typography variant="h2">
-        Our Team
+    <Grid container spacing={2} sx={{ padding: '35px 0' }}>
+  <Grid item xs={12} sm={6} md={8} sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Typography variant="h4" sx={{ marginBottom: '10px', color: 'black', fontWeight: 'bold' }}>
+      Message from Our Head
+    </Typography>
+    <Typography sx={{ fontFamily: 'Rammetto One', fontWeight: '400', fontSize: '50px', color: '#DFDDDD' }}>
+      ''
+    </Typography>
+    <Typography variant="body1" sx={{ color: 'black', lineHeight: '41.28px' }}>
+      {aboutUsData.chairman_msg}
+    </Typography>
+    <ThemeProvider theme={theme}>
+      <Typography sx={{position:'relative', right:'-260px'}}>
+      <Typography variant="subtitle1" sx={{ color: '#9C9C9C', fontFamily: 'Seaweed Script', fontSize: '20px', padding: '10px 300px' }}>
+        {aboutUsData.chairman_name}
+      </Typography>
+      </Typography>
+    </ThemeProvider>
+  </Grid>
+  <Grid item xs={12} sm={6} md={4} style={{ position: 'relative', padding:'70px 0' }}>
+    <div style={{ background: '#2161CD', width: '100%', height: 'auto', position: 'absolute', zIndex: -1, borderRadius: '9px', padding: '230px 0' }} />
+    <img src={aboutUsData.chairman_img_url} alt="image" style={{ width: '100%', height: '560px', position: 'relative', top: '-100px' }} />
+  </Grid>
+</Grid>
+
+
+      <Typography >
+        <div style={{color:'black', fontSize:'40px', fontWeight:'bold', textAlign:'center',padding:'35px 0'}}>Our Team</div>
       </Typography>
 
-      <Grid container spacing={2}>
-        {teamData.map((teamItem, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
-            key={index}
-            onMouseEnter={() => setHoveredMember(index)}
-            onMouseLeave={() => setHoveredMember(null)}
-          >
-            <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', margin: '0 auto' }}>
-              <img src={`http://localhost:1337${teamItem.attributes.img_url.data.attributes.url}`} alt="image" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <Typography variant="h5" sx={{ color: 'black' }}>
-              {teamItem.attributes.name}
-            </Typography>
-            <Typography variant="subtitle1" sx={{ color: 'blue' }}>
-              {teamItem.attributes.designation}
-            </Typography>
-            {hoveredMember === index && (
-              <ul style={{color:'black'}}>
-               <div style={{color:'black'}}>Roles</div> 
-                {teamItem.attributes.role.map((goalItem) => (
-                  <li key={goalItem.id}>{goalItem.name}</li>
-                ))}
-              </ul>
-            )}
-          </Grid>
-        ))}
-      </Grid>
+
+      <Grid container spacing={6} sx={{padding:'5px 0', position: 'relative'}}>
+  {teamData.map((teamItem, index) => (
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={3}
+      key={index}
+      onMouseEnter={() => setHoveredMember(index)}
+      onMouseLeave={() => setHoveredMember(null)}
+      sx={{ position: 'relative' }}
+    >
+      <Box sx={{ border: "1px solid #C7C7C7", padding: 5, borderRadius: 4, display: "flex", flexDirection: "column", alignItems: "center", position: 'relative' }}>
+        <div style={{ width: "100px", height: "100px", borderRadius: "50%", overflow: "hidden", margin: "0 auto"}}>
+          <img src={`http://localhost:1337${teamItem.attributes.img_url.data.attributes.url}`} alt="image" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </div>
+        <Typography variant="h5" sx={{ color: "black", marginTop: 2 }}>
+          {teamItem.attributes.name}
+        </Typography>
+        <Typography variant="subtitle1" sx={{ color: "blue" }}>
+          {teamItem.attributes.designation}
+        </Typography>
+      </Box>
+      {hoveredMember === index && (
+        <Box
+          sx={{
+            boxShadow: '0px 2px 15px 0px #00000040',
+            padding: 2,
+            marginTop: 1,
+            borderRadius: 4,
+            position: 'absolute',
+            top: '70px',
+            left: '230px',
+            backgroundColor:'white',
+            width: '200px',
+            zIndex: 9999 // Set a high zIndex value
+          }}
+        >
+          <Typography variant="body1" sx={{ color: "#2161CD", padding:'0px' }}>Duties & Roles</Typography>
+          <ul style={{ color: "black", listStyle: "none", padding: '0px 10px', listStyleType: 'disc' }}>
+            {teamItem.attributes.role.map((goalItem) => (
+              <li key={goalItem.id} style={{ padding: 1 }}>{goalItem.name}</li>
+            ))}
+          </ul>
+        </Box>
+      )}
+    </Grid>
+  ))}
+</Grid>
 
 
-    </Container>
+
+    </StyledContainer>
+    
   );
 };
 
