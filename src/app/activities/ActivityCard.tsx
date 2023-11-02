@@ -16,11 +16,11 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
 
-const ActivityCard = ({data1}:any) => {
+const ActivityCard = ({ data1 }: any) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const orig = 'http://localhost:1337'
-  
-  const itemsPerPage =12;
+
+  const itemsPerPage = 12;
   const startIndex = (currentPage - 1) * itemsPerPage;
 
   const endIndex = startIndex + itemsPerPage;
@@ -32,8 +32,8 @@ const ActivityCard = ({data1}:any) => {
   return (
     <>
       <Grid container mt={4} spacing={3}>
-        {itemsToDisplay.map((d,index) => (
-         <Grid item xs={12} sm={6} md={4} lg={3} key={index} >
+        {itemsToDisplay.map((d, index) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index} >
 
             <Card elevation={0}>
               <CardMedia
@@ -53,10 +53,10 @@ const ActivityCard = ({data1}:any) => {
                   fontWeight="700"
                   py={1.5}
                 >
-                 {d.attributes.date}
+                  {d.attributes.date}
                 </Typography>
                 <Typography variant="body1" fontWeight="700" pb={2}>
-                {d.attributes.name}
+                  {d.attributes.name}
                 </Typography>
               </CardContent>
               <CardActions
@@ -65,7 +65,7 @@ const ActivityCard = ({data1}:any) => {
                   padding: "0px",
                 }}
               >
-                <Link href="activity/[slug]" as={`activity/${d.id}`}>
+                <Link href="activities/[slug]" as={`activities/${d.id}`}>
                   <Button
                     endIcon={<ArrowForwardIcon />}
                     sx={{
