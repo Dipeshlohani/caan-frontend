@@ -5,7 +5,7 @@ const breakpoints = {
     md: 991,
     lg: 1298,
     xl: 1400,
-    xxl: 1600
-  }
+    xxl: 1600,
+  },
 };
 export default breakpoints;

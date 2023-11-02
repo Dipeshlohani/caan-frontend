@@ -6,6 +6,10 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
+  remotePatterns: [{
+    protocol: 'https',
+    hostname: 'http://localhost:1337/api/activities',
+  }],
 };
 
 module.exports = nextConfig;
