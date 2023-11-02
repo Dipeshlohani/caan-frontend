@@ -1,57 +1,43 @@
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
+import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import { Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import Grid from "@mui/material/Grid";
 
-const ActivityCard = () => {
-  const [imageCards, setImageCards] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const itemsPerPage = 10;
-
-  useEffect(() => {
-    // Make an API request to fetch image card data from your backend
-    fetch("http://localhost:1337/api/activities?populate=*")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setImageCards(data || []);
-      })
-      .catch((error) => {
-        console.error("Error fetching image cards: " + error);
-      });
-  }, []);
-
+const ActivityCard = ({data1}:any) => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const orig = 'http://localhost:1337'
+  
+  const itemsPerPage =12;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const itemsToDisplay = Array.isArray(imageCards) ? imageCards.slice(startIndex, endIndex) : [];
+  const itemsToDisplay = data1.slice(startIndex, endIndex);
 
-  const handlePageChange = (event, page) => {
+  const handlePageChange = (event: any, page: any) => {
     setCurrentPage(page);
   };
-
   return (
     <>
       <Grid container mt={4} spacing={3}>
-        {itemsToDisplay.map((d) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={d.id}>
+        {itemsToDisplay.map((d,index) => (
+         <Grid item xs={12} sm={6} md={4} lg={3} key={index} >
+
             <Card elevation={0}>
               <CardMedia
                 component="img"
-                image={`http://localhost:1337${item.attributes.img_url?.data?.attributes.url}`} // Make sure this corresponds to your API response
+                image={orig + d.attributes.img_url.data.attributes.url}
                 alt="activity image"
                 style={{ borderRadius: "15px", height: "250px" }}
               />
@@ -66,10 +52,10 @@ const ActivityCard = () => {
                   fontWeight="700"
                   py={1.5}
                 >
-                  {d.date} {/* Update with the actual date field */}
+                 {d.attributes.date}
                 </Typography>
                 <Typography variant="body1" fontWeight="700" pb={2}>
-                  {d.description} {/* Update with the actual description field */}
+                {d.attributes.name}
                 </Typography>
               </CardContent>
               <CardActions
@@ -78,7 +64,7 @@ const ActivityCard = () => {
                   padding: "0px",
                 }}
               >
-                <Link href={`/activity/${d.slug}`} as={`/activity/${d.id}`}>
+                <Link href="activity/[slug]" as={`activity/${d.id}`}>
                   <Button
                     endIcon={<ArrowForwardIcon />}
                     sx={{
@@ -98,13 +84,13 @@ const ActivityCard = () => {
 
       <Stack spacing={2} alignItems="center" pt={8}>
         <Pagination
-          count={Math.ceil(imageCards.length / itemsPerPage)}
+          count={Math.ceil(data1.length / itemsPerPage)}
           page={currentPage}
           onChange={handlePageChange}
         />
       </Stack>
+
     </>
   );
 };
-
 export default ActivityCard;
