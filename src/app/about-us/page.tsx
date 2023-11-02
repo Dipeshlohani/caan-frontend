@@ -149,7 +149,7 @@ const AboutUs = () => {
       onMouseLeave={() => setHoveredMember(null)}
       sx={{ position: 'relative' }}
     >
-      <Box sx={{ border: "1px solid #C7C7C7", padding: 5, borderRadius: 4, display: "flex", flexDirection: "column", alignItems: "center", position: 'relative' }}>
+      <Box sx={{ border: "1px solid #C7C7C7", padding: 5, borderRadius: 4, display: "flex", flexDirection: "column", alignItems: "center", position: 'relative', width: "180px", height: "180px", }}>
         <div style={{ width: "100px", height: "100px", borderRadius: "50%", overflow: "hidden", margin: "0 auto"}}>
           <img src={`http://localhost:1337${teamItem.attributes.img_url.data.attributes.url}`} alt="image" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
