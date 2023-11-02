@@ -3,7 +3,6 @@ import { Box, Button, Stack } from "@mui/material";
 import styles from "./styles";
 import ActivityCard from "./ActivityCard";
 import UpcomingActivities from "./UpcomingActivities";
-
 async function getData() {
   let today_date = new Date();
   const res = await fetch('http://localhost:1337/api/activities?populate=*');
@@ -12,13 +11,10 @@ async function getData() {
   }
   return res.json();
 }
-
 const Activities = () => {
   const [toggle, setToggle] = useState("past");
   const [pastData, setPastData] = React.useState([]);
   const [upcomingData, setUpcomingData] = React.useState([]);
-
-
   const handleToggle = (val: any) => {
     setToggle(val);
   };
@@ -29,11 +25,8 @@ const Activities = () => {
      const  upcoming =  result.data.filter((d)=>new Date(d.attributes.date) >= new Date())
      console.log('past',past)
      console.log('upcoming',upcoming)
-
       setPastData(past);
       setUpcomingData(upcoming);
-
-
     }
     fetchData();
   }, []);
@@ -63,5 +56,4 @@ const Activities = () => {
     </Box>
   );
 };
-
 export default Activities;

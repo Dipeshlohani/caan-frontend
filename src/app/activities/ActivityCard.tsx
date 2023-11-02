@@ -22,6 +22,7 @@ const ActivityCard = ({data1}:any) => {
   
   const itemsPerPage =12;
   const startIndex = (currentPage - 1) * itemsPerPage;
+
   const endIndex = startIndex + itemsPerPage;
   const itemsToDisplay = data1.slice(startIndex, endIndex);
 
