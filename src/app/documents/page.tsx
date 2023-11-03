@@ -11,7 +11,7 @@ async function getData() {
       'Authorization': `bearer ${process.env.API_KEY}`
     }
   }
-  let url = `http://localhost:1337/api/document-categories?populate=*`
+  let url = `${process.env.HOST}/api/document-categories?populate[0]=document&populate[1]=document.file_url`
   console.log(url);
   const res = await fetch(url, options);
   if (!res.ok) {
@@ -22,7 +22,6 @@ async function getData() {
 
 export default async function Document() {
   let { data } = await getData();
-  console.log(data, '===========================xx=====================');
   return (
     <div>
       <ul>
@@ -41,7 +40,11 @@ export default async function Document() {
                   minWidth: '48%',
                   textAlign: 'left',
                 }}
-              >{elem.attributes.name}.</Box>
+              >{elem.attributes.name}
+                {elem.attributes.document.map(doc => (
+                  <h1>{doc.name}</h1>
+                ))}
+              </Box>
             </>
           ))
         }
