@@ -1,17 +1,175 @@
-.box {
-  border: 1px solid #grey;
-  background-color: #grey;
-}
-
-.link {
+.documentContainer {
+  display: flex;
+  align-items: flex-start;
   margin: 10px;
 }
 
-.links {
-  float: right;
-  color: #2161cd;
+.documentBox {
+  border: 1px solid blue;
+  background-color: white;
+  padding: 10px;
+  text-align: left;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-bottom: 10px;
+  width: 1000px;
+  border-radius: 10px;
 }
 
 .heading {
-  color: black;
+  color: rgb(4, 38, 255);
+  font-size: 24px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30px;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: rgb(4, 38, 255);
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.categories {
+  margin-top: 10px;
+}
+
+.category {
+  margin: 10px 0;
+  color: rgb(4, 38, 255);
+}
+
+.categoryBox {
+  border: 1px solid blue;
+  background-color: white;
+  padding: 10px;
+  text-align: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.subcategoryBox {
+  border: 1px solid lightgray;
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+
+.categoryBox+.categoryBox,
+.subcategoryBox+.subcategoryBox {
+  margin-left: 20px;
+}
+
+
+.importantLinks {
+  flex-basis: 300px;
+  border: 1px solid rgb(15, 15, 18);
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+}
+
+.linkList li {
+  margin: 2px 0;
+  text-decoration: underline;
+
+  line-height: 3;
+  font-size: bold;
+  text-decoration-skip-ink: auto;
+}
+
+.linkList a {
+  text-decoration: none;
+  color: rgb(13, 13, 14);
+  text-decoration: underline;
+
+  line-height: 1.5;
+  font-size: bold;
+  text-decoration-skip-ink: auto;
+}
+
+.linkList a:hover {
+  text-decoration: underline;
+}
+
+.subcategories {
+  display: flex;
+  flex-direction: column;
+}
+
+.subcategory {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+
+.subcategory span {
+  flex-grow: 1;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
+}
+
+.viewButton,
+.downloadButton {
+  background-color: rgb(86, 75, 188);
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+
+.importantLinks h3 {
+  font-size: 18px;
+  color: rgb(2, 3, 11);
+  margin: 0 0 10px;
+}
+
+.importantLink {
+  text-decoration: underline;
+  line-height: 1.5;
+  text-decoration-skip-ink: auto;
+  font: bold;
+  color: rgb(2, 3, 11);
+  border-radius: 10px;
+}
+
+.rightArrow {
+  font-size: 18px;
+
+  margin-left: 5px;
+
+  color: rgb(12, 12, 13);
+}
+
+.importantLinks::after {
+  content: " > ";
+  padding-left: 20px;
+
 }

@@ -18,15 +18,25 @@ const sampleData = [
 
 const DashboardCard = () => {
   return (
+<<<<<<< HEAD
     <CardSlider>
       <div className={styles.container}>
+=======
+    <div className={styles.container}>
+      <CardSlider>
+>>>>>>> 292b7c6a680a79919be369d91b7ff94baae2cfe2
         {
           sampleData.map(item => (
             <Card key={item.title} Icon={item.Icon} title={item.title} />
           ))
         }
+<<<<<<< HEAD
       </div>
     </CardSlider>
+=======
+      </CardSlider>
+    </div>
+>>>>>>> 292b7c6a680a79919be369d91b7ff94baae2cfe2
   )
 }
 1

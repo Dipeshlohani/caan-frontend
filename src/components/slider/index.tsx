@@ -23,6 +23,12 @@ const CardSlider: React.FC<children> = ({
   children: React.ReactNode
 }) => {
   const settings = {
+<<<<<<< HEAD
+=======
+    className: "center",
+    infinite: true,
+    centerPadding: "10px",
+>>>>>>> 292b7c6a680a79919be369d91b7ff94baae2cfe2
     slidesToShow: 4,
     swipeToSlide: true,
     afterChange: function (index: number) {
