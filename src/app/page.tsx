@@ -10,16 +10,17 @@ import AboutUs from '../components/about';
 import Layout from "../components/layout"
 const Home = () => {
   return (
-    <Layout>
-      <Hero />
-      <Functions />
-      <AboutUs />
-      <OurActivities />
-      <OurMedias />
-      <ImportantLinks />
-      <CallToAction />
-    </Layout>
-
+    <>
+      <Layout>
+        <Hero />
+        <Functions />
+        <AboutUs />
+        <OurActivities />
+        <OurMedias />
+        <ImportantLinks />
+        <CallToAction />
+      </Layout>
+    </>
   )
 }
 

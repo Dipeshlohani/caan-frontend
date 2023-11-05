@@ -56,7 +56,11 @@ const AboutUs = () => {
                 aviation security throughout the global community.
               </Typography>
               <Stack direction="row" justifyContent="flex-end" sx={{ pt: 3 }}>
-                <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                <Button
+                  href="/about-us"
+                  variant="text"
+                  endIcon={<ArrowForwardIcon />}
+                >
                   Read More
                 </Button>
               </Stack>

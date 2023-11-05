@@ -4,6 +4,8 @@ import { styled, ThemeProvider, createTheme } from '@mui/system';
 import { Box, Grid, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
 import SubsribeBanner from "@/components/subscribe";
+import CallToAction from "@/components/cta";
+import Layout from "@/components/layout";
 
 
 const StyledContainer = styled(Container)({
@@ -65,7 +67,7 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       <StyledContainer >
         <Grid container spacing={2} sx={{ padding: '70px 0' }}>
           <Grid item xs={12} sm={6} md={4}>
@@ -185,8 +187,8 @@ const AboutUs = () => {
           ))}
         </Grid>
       </StyledContainer>
-      <SubsribeBanner />
-    </>
+      <CallToAction />
+    </Layout >
   );
 };
 

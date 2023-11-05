@@ -92,19 +92,19 @@ const Header = () => {
                 sx={{ display: { xs: 'none', md: 'block' } }}
               >
                 {navItems.map((item) => (
-                  <Button
-                    key={item.name}
-                    color="secondary"
-                    size="small"
-                    variant="text"
-                    sx={{ px: 2 }}
-                    // component={<Link href={'/'} />}
-                    to={item.url}
-                  >
-                    <Link href={item.url} style={{ textDecoration: 'none' }}>
+                  <Link href={item.url} style={{ textDecoration: 'none' }}>
+                    <Button
+                      key={item.name}
+                      color="secondary"
+                      size="small"
+                      variant="text"
+                      sx={{ px: 2 }}
+                      // component={<Link href={'/'} />}
+                      to={item.url}
+                    >
                       {item.name}
-                    </Link>
-                  </Button>
+                    </Button>
+                  </Link>
                 ))}
               </Stack>
               <IconButton

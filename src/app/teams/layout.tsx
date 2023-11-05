@@ -1,14 +1,16 @@
+import Banner from "@/components/banner";
+import { FiHome } from "react-icons/fi";
+
 export default function DashboardLayout({
-    children, // will be a page or nested layout
-  }: {
-    children: React.ReactNode,
-  }) {
-    return (
-      <section>
-        {/* Include shared UI here e.g. a header or sidebar */}
-        <nav></nav>
-        {children}
-      </section>
-    );
-  }
-  
+  children, // will be a page or nested layout
+}: {
+  children: React.ReactNode,
+}) {
+  return (
+    <section>
+      <Banner name="Teams" title="Teams" icon={<FiHome />} />
+
+      {children}
+    </section>
+  );
+}

@@ -38,6 +38,7 @@ const OurActivities = () => {
           <Button
             variant="contained"
             color="primary"
+            href="/activities"
             endIcon={<ArrowForwardIcon />}
           >
             View All Activities

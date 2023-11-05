@@ -1,5 +1,5 @@
 import Banner from '@/components/banner'
-import SubsribeBanner from "@/components/subscribe";
+import CallToAction from '@/components/cta';
 import { FiHome } from "react-icons/fi";
 
 
@@ -11,9 +11,8 @@ export default function DocumentLayout({
   return (
     <section>
       {/* Include shared UI here e.g. a header or sidebar */}
-      <Banner name="Documents" title="" icon={<FiHome />} />
+      <Banner name="Documents" title="Documents" icon={<FiHome />} />
       {children}
-      <SubsribeBanner />
     </section>
   );
 }

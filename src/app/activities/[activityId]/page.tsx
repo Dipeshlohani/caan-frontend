@@ -1,11 +1,6 @@
-import Activity from "../../../components/card/activity/Card"
-import Banner from '@/components/banner'
 import SubsribeBanner from "@/components/subscribe";
 import Image from 'next/image'
-import { FiHome } from "react-icons/fi";
 import styles from './activitydetail.module.css';
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
 
 async function getData(id: string) {
   var options = {
@@ -43,10 +38,8 @@ async function getPastActivities() {
 }
 
 export default async function AboutActivity({ params }: { params: { activityId: string } }) {
-  let data = await getData(params.activityId);
+  let { data } = await getData(params.activityId);
   let pastActivities = await getPastActivities();
-  console.log(pastActivities)
-  data = data.data;
   let img_url = process.env.HOST + data.attributes.img_url.data.attributes.url;
   let date = data.attributes.date;
   let description = data.attributes.description;
@@ -54,8 +47,6 @@ export default async function AboutActivity({ params }: { params: { activityId: 
 
   return (
     <div>
-      {/* {<HomeIcon />} */}
-      <Banner name="Activites" title="ANSSD Yearly Conference" icon={<FiHome />} />
       <div className="container">
         <div className={styles.activity__Container}>
           <div className={styles.activity__Contents}>

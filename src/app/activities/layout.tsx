@@ -9,7 +9,7 @@ export default function DashboardLayout({
   return (
     <section>
       {/* Include shared UI here e.g. a header or sidebar */}
-      <Banner name="About Us" title="About Us" icon={<FiHome />} />
+      <Banner name="Activities" title="Activities" icon={<FiHome />} />
       {children}
     </section>
   );

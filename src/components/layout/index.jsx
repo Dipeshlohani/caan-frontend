@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
       <Box>
         <Header />
         {children}
-        <Footer content={footerRoutes} />
       </Box>
     </ThemeProvider>
   );

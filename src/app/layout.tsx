@@ -1,8 +1,7 @@
 
+import GeneralFooter from '@/components/GeneralFooter'
+import Header from '@/components/header'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Navbar from "@/components/navbar/Navbar";
-import GeneralFooter from '@/components/GeneralFooter';
 
 export const metadata: Metadata = {
   title: 'CAAN App',
@@ -18,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* <Header /> */}
         {children}
-        {/* <div className='footer'>Footer</div> */}
         <GeneralFooter />
       </body>
     </html>

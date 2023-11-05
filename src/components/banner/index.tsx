@@ -24,12 +24,14 @@ const Banner = ({ title, name, icon }: BannerProps) => {
       <style jsx>{`
         .banner__Container {
           min-height: 200px;
+          font:inter;
           background: #2161cd;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
           gap: 10px 0px;
+          color: white;
         }
 
         .navigation__Bar {
