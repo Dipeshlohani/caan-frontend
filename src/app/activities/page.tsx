@@ -8,7 +8,7 @@ import CallToAction from "@/components/cta";
 import Layout from "@/components/layout";
 // import Footer from "./Footer";
 
-const Home = () => {
+const Activity = () => {
   return (
     <Layout>
       {/* <ActivityBox /> */}
@@ -21,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Activity;

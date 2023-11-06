@@ -1,6 +1,7 @@
 import SubsribeBanner from "@/components/subscribe";
 import Image from 'next/image'
 import styles from './activitydetail.module.css';
+import CallToAction from "@/components/cta";
 
 async function getData(id: string) {
   var options = {
@@ -78,6 +79,8 @@ export default async function AboutActivity({ params }: { params: { activityId: 
         </div>
       </div>
       <SubsribeBanner />
+
+      {/* <CallToAction /> */}
     </div >
   );
 }
