@@ -26,6 +26,7 @@ const Banner = ({ title, name, icon }: BannerProps) => {
           min-height: 200px;
           font:inter;
           background: #2161cd;
+          margin-top: 135px;
           display: flex;
           justify-content: center;
           align-items: center;

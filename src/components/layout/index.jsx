@@ -5,7 +5,7 @@ import Footer from '../footer';
 import theme from '../../assets/theme/';
 import footerRoutes from '../footer/footer.routes';
 
-const Layout = ({ children }) => {
+const Wrapper = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Box>
@@ -16,4 +16,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default Wrapper;

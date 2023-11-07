@@ -162,7 +162,7 @@ const theme = createTheme({
           },
         },
         primary: {
-          //backgroundColor: theme.palette.primary.main
+          backgroundColor: '#2161CD',
           text: {},
         },
       },

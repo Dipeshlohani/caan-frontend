@@ -7,10 +7,10 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
-import FacebookIcon from "../../assets/Icons/FacebookIcon";
-import TwitterIcon from "../../assets/Icons/TwitterIcon";
-import YoutubeIcon from "../../assets/Icons/YoutubeIcon";
-import LinkedInIcon from "../../assets/Icons/LinkedInIcon";
+import FacebookIcon from "../../assets/Icons/facebookIcon";
+import TwitterIcon from "../../assets/Icons/twitterIcon";
+import YoutubeIcon from "../../assets/Icons/youtubeIcon";
+import LinkedInIcon from "../../assets/Icons/linkedinIcon";
 
 const styles = {
   footerTextHeading: {

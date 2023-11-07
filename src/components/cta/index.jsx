@@ -5,8 +5,9 @@ const CallToAction = () => {
   return (
     <Box
       sx={{
-        backgroundColor: (theme) => theme.palette.secondary.light,
+        backgroundColor: '#e3f0ff',
         py: '50px',
+        marginTop: '100px',
       }}
     >
       <Container maxWidth="lg">
