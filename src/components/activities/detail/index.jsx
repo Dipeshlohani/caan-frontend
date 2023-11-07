@@ -55,7 +55,7 @@ const ActivityDetail = async ({ activityId }) => {
             <Image
               src={img_url}
               alt="activity banner"
-              width="950"
+              width="900"
               height="550"
             />
           </div>

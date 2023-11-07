@@ -117,13 +117,9 @@ const AboutUs = () => {
             <Typography variant="body1" sx={{ color: 'black', lineHeight: '41.28px' }}>
               {aboutUsData.chairman_msg}
             </Typography>
-            <ThemeProvider theme={theme}>
-              <Typography sx={{ position: 'relative', right: '-260px' }}>
-                <Typography variant="subtitle1" sx={{ color: '#9C9C9C', fontFamily: 'Seaweed Script', fontSize: '20px', padding: '10px 300px' }}>
-                  {aboutUsData.chairman_name}
-                </Typography>
-              </Typography>
-            </ThemeProvider>
+            <Typography variant="subtitle1" sx={{ position: 'relative', right: '-260px', color: '#9C9C9C', fontFamily: 'Seaweed Script', fontSize: '20px', padding: '10px 300px' }}>
+              {aboutUsData.chairman_name}
+            </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} style={{ position: 'relative', padding: '70px 0' }}>
             <div style={{ background: '#2161CD', width: '100%', height: 'auto', position: 'absolute', zIndex: -1, borderRadius: '9px', padding: '230px 0' }} />
@@ -132,8 +128,8 @@ const AboutUs = () => {
         </Grid>
 
 
-        <Typography >
-          <div style={{ color: 'black', fontSize: '40px', fontWeight: 'bold', textAlign: 'center', padding: '35px 0' }}>Our Team</div>
+        <Typography style={{ color: 'black', fontSize: '40px', fontWeight: 'bold', textAlign: 'center', padding: '35px 0' }}>
+          Our Team
         </Typography>
 
 
