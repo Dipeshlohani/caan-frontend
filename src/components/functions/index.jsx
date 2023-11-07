@@ -19,6 +19,16 @@ import ServerIcon from '../../assets/Icons/serverIcon';
 import PlaneIcon2 from '../../assets/Icons/planeIcon2';
 import ArrowRightIcon from '../../assets/Icons/arrowRightIcon';
 
+const data = [
+  { icon: <PlaneIcon1 />, title: 'Air Traffic System' },
+  { icon: <DesktopIcon />, title: 'Airport Info System' },
+  { icon: <ServerIcon />, title: 'Central Navigation System' },
+  { icon: <PlaneIcon2 />, title: 'Search And Rescue' },
+  { icon: <PlaneIcon1 />, title: 'Air Traffic System' },
+  { icon: <DesktopIcon />, title: 'Airport Info System' },
+  { icon: <ServerIcon />, title: 'Central Navigation System' },
+  { icon: <PlaneIcon2 />, title: 'Search And Rescue' },
+];
 const Functions = () => {
   return (
     <div style={{ display: 'flex' }}>
@@ -54,80 +64,24 @@ const Functions = () => {
               nextEl: '.swiper-button-next',
             }}
           >
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <PlaneIcon1 />
-                </Box>
-                <Typography variant="h5">Air Traffic System</Typography>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <DesktopIcon />
-                </Box>
-                <Typography variant="h5">Airport Info System</Typography>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <ServerIcon />
-                </Box>
-                <Typography variant="h5">Central Navigation System</Typography>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <PlaneIcon2 />
-                </Box>
-                <Typography variant="h5">Search And Rescue</Typography>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <PlaneIcon1 />
-                </Box>
-                <Typography variant="h5">Air Traffic System</Typography>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <DesktopIcon />
-                </Box>
-                <Typography variant="h5">Airport Info System</Typography>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <ServerIcon />
-                </Box>
-                <Typography variant="h5">Central Navigation System</Typography>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card className="iconCard">
-                <Box>
-                  <PlaneIcon2 />
-                </Box>
-                <Typography variant="h5">Search And Rescue</Typography>
-              </Card>
-            </SwiperSlide>
+            {data.map((item, index) => (
+              <SwiperSlide key={index}>
+                <Card className="iconCard">
+                  <Box>{item.icon}</Box>
+                  <Typography variant="h5">{item.title}</Typography>
+                </Card>
+              </SwiperSlide>
+            ))}
           </Swiper>
+          <IconButton
+            className="swiper-button-next"
+            size="large"
+            style={{ position: 'relative' }}
+          >
+            <ArrowRightIcon />
+          </IconButton>
         </Stack>
       </Container>
-      <IconButton
-        className="swiper-button-next"
-        size="large"
-        style={{ position: 'static', marginRight: '100px' }}
-      >
-        <ArrowRightIcon />
-      </IconButton>
     </div>
   );
 };

@@ -75,7 +75,7 @@ const DocumentPage = () => {
   };
   return (
     <Layout>
-      <Grid container spacing={3} sx={{ padding: '10px 180px' }}>
+      <Grid container spacing={3} sx={{ marginTop: "12px", padding: '10px 180px' }}>
         <Grid item xs={8} sx={{ flexBasis: '65%' }}>
 
           {documentCategories.map((category, index) => (
@@ -87,7 +87,13 @@ const DocumentPage = () => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   height: '50px',
-                  width: '700px',
+                  width: {
+                    xs: 100,
+                    sm: 200,
+                    md: 350,
+                    lg: 550,
+                    xl: 700
+                  },
                   backgroundColor: 'white',
                   border: '1px solid #BCBABA',
                   padding: '0 20px',
@@ -110,7 +116,13 @@ const DocumentPage = () => {
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         height: '50px',
-                        width: '670px',
+                        width: {
+                          xs: 200,
+                          sm: 250,
+                          md: 350,
+                          lg: 550,
+                          xl: 700
+                        },
                         backgroundColor: 'white',
                         border: '1px solid #BCBABA',
                         padding: '0 20px',
@@ -137,7 +149,15 @@ const DocumentPage = () => {
           ))}
         </Grid>
         <Grid item xs={4} sx={{ flexBasis: '35%' }}>
-          <Box sx={{ width: '250px', height: 'auto', padding: '20px', border: '1px solid black', borderRadius: '8px' }}>
+          <Box sx={{
+            width: {
+              xs: 50,
+              sm: 100,
+              md: 150,
+              lg: 250,
+              xl: 300
+            }, height: 'auto', padding: '20px', border: '1px solid black', borderRadius: '8px'
+          }}>
             <Typography variant="h6" gutterBottom>
               Important Links
             </Typography>
