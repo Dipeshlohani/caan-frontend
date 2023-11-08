@@ -6,7 +6,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const Hero = () => {
+const Hero = ({ carousel }) => {
   return (
     <Box
       sx={{
@@ -28,7 +28,53 @@ const Hero = () => {
             clickable: true
           }}
         >
-          <SwiperSlide>
+          {carousel?.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Box sx={{ py: 3, mx: { xs: 2, md: 0 } }}>
+                <Grid
+                  container
+                  spacing={4}
+                  alignItems="center"
+                  sx={{ minHeight: "calc(100vh - 450px)" }}
+                >
+                  <Grid item xs={12} md={5} order={{ xs: 1, md: 0 }}>
+                    <Typography
+                      variant="h1"
+                      color="secondary"
+                      sx={{ mb: "0.75rem!important" }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography variant="body2" color="secondary">
+                      {item.description}
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      sx={{ mt: "1.25rem" }}
+                    >
+                      Read More
+                    </Button>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    md={7}
+                    sx={{ pl: { md: 8 }, mx: { xs: 5, md: 0 } }}
+                  >
+                    <img
+                      src={'http://localhost:1337' + item.img_url.data.attributes.url}
+                      alt=""
+                      width="100%"
+                      height="450px"
+                      style={{ objectFit: "contain" }}
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </SwiperSlide>
+          ))}
+          {/* <SwiperSlide>
             <Box sx={{ py: 3, mx: { xs: 2, md: 0 } }}>
               <Grid
                 container
@@ -165,7 +211,7 @@ const Hero = () => {
                 </Grid>
               </Grid>
             </Box>
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </Container>
     </Box>

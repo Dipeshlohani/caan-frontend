@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const ImportantLinks = () => {
+const ImportantLinks = ({ links }) => {
   return (
     <Box sx={{ py: { xs: "4rem", md: "6.5rem" } }}>
       <Container maxWidth="lg">
@@ -31,108 +31,25 @@ const ImportantLinks = () => {
           rowSpacing={{ xs: 3, md: 5 }}
           columnSpacing={{ xs: 2.5, md: 4 }}
         >
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              color="secondary"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between"
-              }}
-            >
-              <CardHeader title="Operation & Safety"></CardHeader>
-              <CardActions>
-                <Button variant="text" endIcon={<ArrowForwardIcon />}>
-                  Read More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              color="secondary"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between"
-              }}
-            >
-              <CardHeader title="Documents for Download "></CardHeader>
-              <CardActions>
-                <Button variant="text" endIcon={<ArrowForwardIcon />}>
-                  Read More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              color="secondary"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between"
-              }}
-            >
-              <CardHeader title="Personal Licensing "></CardHeader>
-              <CardActions>
-                <Button variant="text" endIcon={<ArrowForwardIcon />}>
-                  Read More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              color="secondary"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between"
-              }}
-            >
-              <CardHeader title="Rules & Regulations"></CardHeader>
-              <CardActions>
-                <Button variant="text" endIcon={<ArrowForwardIcon />}>
-                  Read More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              color="secondary"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between"
-              }}
-            >
-              <CardHeader title=" E-Services & Forms "></CardHeader>
-              <CardActions>
-                <Button variant="text" endIcon={<ArrowForwardIcon />}>
-                  Read More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              color="secondary"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between"
-              }}
-            >
-              <CardHeader title="Who We Are "></CardHeader>
-              <CardActions>
-                <Button variant="text" endIcon={<ArrowForwardIcon />}>
-                  Read More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
+          {links.map((link, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card
+                color="secondary"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between"
+                }}
+              >
+                <CardHeader title={link.title}></CardHeader>
+                <CardActions>
+                  <Button variant="text" href={link.link} endIcon={<ArrowForwardIcon />}>
+                    Read More
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
         <Stack
           direction="row"

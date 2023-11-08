@@ -79,7 +79,7 @@ const DocumentPage = () => {
         <Grid item xs={8} sx={{ flexBasis: '65%' }}>
 
           {documentCategories.map((category, index) => (
-            <div key={category.id}>
+            <div key={index}>
               <Box
                 sx={{
                   display: 'flex',
@@ -108,9 +108,9 @@ const DocumentPage = () => {
               </Box>
               {category.showBoxes && (
                 <div>
-                  {category.attributes.document.map((document) => (
+                  {category.attributes.document.map((document, index) => (
                     <Box
-                      key={document.id}
+                      key={index}
                       sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -161,9 +161,9 @@ const DocumentPage = () => {
             <Typography variant="h6" gutterBottom>
               Important Links
             </Typography>
-            {importantLinks.map((link) => (
+            {importantLinks.map((link, index) => (
               <>
-                <Box key={link} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: "10px 0", fontWeight: 'bold' }}>
+                <Box key={index} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: "10px 0", fontWeight: 'bold' }}>
                   <Typography variant="body1">{link}</Typography>
                   <div>{`>`}</div>
                 </Box>
@@ -190,7 +190,6 @@ async function getData() {
     }
   }
   let url = `${process.env.HOST}/api/document-categories?populate[0]=document&populate[1]=document.file_url`
-  console.log(url);
   const res = await fetch(url, options);
   if (!res.ok) {
     throw new Error('Failed to fetch data')

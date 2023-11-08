@@ -11,7 +11,8 @@ import {
 
 import colors from '../../assets/theme/base/colors';
 
-const OurMedias = () => {
+const OurMedias = ({ media }) => {
+  media = media[0];
   return (
     <Box
       sx={{
@@ -38,66 +39,18 @@ const OurMedias = () => {
           rowSpacing={{ xs: 3, md: 5 }}
           columnSpacing={{ xs: 2.5, md: 4 }}
         >
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ p: 0 }}>
-              <CardMedia
-                component="img"
-                height="100%"
-                image="images/img1.jpg"
-                alt="image"
-              />
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ p: 0 }}>
-              <CardMedia
-                component="img"
-                height="100%"
-                image="images/img1.jpg"
-                alt="image"
-              />
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ p: 0 }}>
-              <CardMedia
-                component="img"
-                height="100%"
-                image="images/img1.jpg"
-                alt="image"
-              />
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ p: 0 }}>
-              <CardMedia
-                component="img"
-                height="100%"
-                image="images/img1.jpg"
-                alt="image"
-              />
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ p: 0 }}>
-              <CardMedia
-                component="img"
-                height="100%"
-                image="images/img1.jpg"
-                alt="image"
-              />
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ p: 0 }}>
-              <CardMedia
-                component="img"
-                height="100%"
-                image="images/img1.jpg"
-                alt="image"
-              />
-            </Card>
-          </Grid>
+          {media?.img_url?.data.map((item, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card sx={{ p: 0 }}>
+                <CardMedia
+                  component="img"
+                  height="100%"
+                  image={'http://localhost:1337' + item.attributes.url}
+                  alt="image"
+                />
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </Box>

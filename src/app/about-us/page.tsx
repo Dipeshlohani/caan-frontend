@@ -37,7 +37,6 @@ const AboutUs = () => {
     fetch("http://localhost:1337/api/about-us?populate=*")
       .then(res => res.json())
       .then((aboutUsData) => {
-        console.log(aboutUsData);
         setAboutUsData({
           chairman_img_url: 'http://localhost:1337' + aboutUsData.data.attributes.chairman_img_url.data.attributes.url,
           chairman_msg: aboutUsData.data.attributes.chairman_msg,
