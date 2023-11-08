@@ -40,18 +40,14 @@ const OurTeam = () => {
           justifyContent: "center",
         }}
       >
-        <Typography>
-          <div
-            style={{
-              color: "black",
-              fontSize: "40px",
-              fontWeight: "bold",
-              textAlign: "center",
-              padding: "35px 0",
-            }}
-          >
-            Our Team
-          </div>
+        <Typography sx={{
+          color: "black",
+          fontSize: "40px",
+          fontWeight: "bold",
+          textAlign: "center",
+          padding: "35px 0",
+        }}>
+          Our Team
         </Typography>
         <Grid container spacing={6} sx={{ padding: "5px 0", position: "relative" }}>
           {teamData.map((teamItem, index) => (

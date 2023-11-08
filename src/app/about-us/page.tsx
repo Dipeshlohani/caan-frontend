@@ -7,17 +7,16 @@ import SubsribeBanner from "@/components/subscribe";
 import CallToAction from "@/components/cta";
 import Layout from "@/components/layout";
 
+import { Seaweed_Script, Rammetto_One } from 'next/font/google'
+
+// If loading a variable font, you don't need to specify the font weight
+const seaweed_script = Seaweed_Script({ weight: '400', subsets: ['latin'] })
+const rammetto_one = Rammetto_One({ weight: '400', subsets: ['latin'] })
 
 const StyledContainer = styled(Container)({
   paddingLeft: '250px', // Add space on the left
   paddingRight: '250px',
   font: 'inter',
-});
-
-const theme = createTheme({
-  typography: {
-    fontFamily: ['Seaweed Script', 'cursive'].join(','),
-  },
 });
 
 const AboutUs = () => {
@@ -109,15 +108,15 @@ const AboutUs = () => {
         <Grid container spacing={2} sx={{ padding: '35px 0' }}>
           <Grid item xs={12} sm={6} md={8} sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant="h4" sx={{ marginBottom: '10px', color: 'black', fontWeight: 'bold' }}>
-              Message from Our Head
+              Message from Department Head
             </Typography>
-            <Typography sx={{ fontFamily: 'Rammetto One', fontWeight: '400', fontSize: '50px', color: '#DFDDDD' }}>
-              ''
+            <Typography className={rammetto_one.className} sx={{ fontFamily: 'Rammetto One', fontWeight: '400', fontSize: '50px', color: '#DFDDDD' }}>
+              “
             </Typography>
             <Typography variant="body1" sx={{ color: 'black', lineHeight: '41.28px' }}>
               {aboutUsData.chairman_msg}
             </Typography>
-            <Typography variant="subtitle1" sx={{ position: 'relative', right: '-260px', color: '#9C9C9C', fontFamily: 'Seaweed Script', fontSize: '20px', padding: '10px 300px' }}>
+            <Typography className={seaweed_script.className} variant="subtitle1" sx={{ position: 'relative', right: '-260px', color: '#9C9C9C', fontFamily: 'Seaweed Script', fontSize: '20px', padding: '10px 300px' }}>
               {aboutUsData.chairman_name}
             </Typography>
           </Grid>
