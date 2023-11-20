@@ -37,7 +37,7 @@ const navItems = [
   { name: 'Operation & Safety', url: '/operation-and-safety' },
   { name: 'Documents', url: '/documents' },
   { name: 'Forms', url: '/forms' },
-  { name: 'Contact', url: '/contact' },
+  { name: 'Contact', url: '/contact-us' },
 ];
 
 const Header = () => {
