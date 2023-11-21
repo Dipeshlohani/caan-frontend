@@ -6,7 +6,10 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
-import MailOutlinedIcon from '@mui/icons-material/MailOutlined'; import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CallToAction from '@/components/cta';
 
 const ContactUsPage = () => {
   return (
@@ -15,8 +18,8 @@ const ContactUsPage = () => {
         <Grid container spacing={3}>
           {/* Left Column - Contact Form */}
           <Grid item xs={12} md={8}>
-            <Paper elevation={0} sx={{ padding: 3, height: '100%' }}>
-              <Typography variant="h2" gutterBottom>
+            <Paper elevation={0} sx={{ padding: 3, height: '100%', margin: '30px 0' }}>
+              <Typography variant="h2" gutterBottom >
                 Contact Us
               </Typography>
               <form>
@@ -30,8 +33,8 @@ const ContactUsPage = () => {
                   rows={4}
                   margin="normal"
                 />
-                <Button variant="contained" color="primary" sx={{ marginTop: 2 }}>
-                  Send Message
+                <Button variant="contained" color="primary" sx={{ marginTop: 2, float: 'right' }}>
+                  Send Now <ArrowForwardIcon sx={{ fontSize: '20px' }} />
                 </Button>
               </form>
             </Paper>
@@ -72,12 +75,14 @@ const ContactUsPage = () => {
             width="100%"
             height="400"
             frameBorder="0"
-            style={{ border: 0 }}
-            src="https://www.google.com/maps/embed?..."
+            style={{ border: 0, margin: "50px 0" }}
+            src="https://www.google.com/maps/embed?q=CAAN&t=&z=10&ie=UTF8&iwloc=&output=embed"
             allowFullScreen
           />
+
         </Box>
       </Container>
+      <CallToAction />
     </Layout>
   );
 };

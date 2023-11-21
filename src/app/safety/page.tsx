@@ -2,13 +2,14 @@ import React from 'react';
 import { Container, Grid, Paper, Typography, Box, Divider, Button, IconButton } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Layout from "@/components/layout";
+import CallToAction from '@/components/cta';
 
 const CivilAviationSafetyPage = () => {
   return (
     <Layout>
       <Container>
         {/* Title */}
-        <Typography variant="h1" gutterBottom sx={{ marginTop: 4, fontWeight: 500, margin: '30px 0' }}>
+        <Typography variant="h1" gutterBottom sx={{ marginTop: 4, fontWeight: 500, }}>
           Civil Aviation Safety Authority Planning and Conduct of Surveillance Activities
         </Typography>
 
@@ -16,12 +17,12 @@ const CivilAviationSafetyPage = () => {
         <Grid container spacing={3}>
           {/* Left Column - Image */}
           <Grid item xs={12} md={8}>
-            <img src="/plane1.png" alt="Civil Aviation Safety" style={{ width: '100%', height: 'auto' }} />
+            <img src="/plane1.png" alt="Civil Aviation Safety" style={{ width: '100%', height: 'auto', margin: '30px 0' }} />
           </Grid>
 
           {/* Right Column - Rows with Headings and Descriptions */}
           <Grid item xs={12} md={4}>
-            <Box sx={{ padding: 3, height: 'auto' }}>
+            <Box sx={{ padding: 3, height: 'auto', margin: '60px 0' }}>
               <Box sx={{ marginBottom: 2 }}>
                 <Typography variant="h5" gutterBottom>
                   Portfolio
@@ -96,83 +97,94 @@ const CivilAviationSafetyPage = () => {
             <Typography variant="h6" id="reporting">
               4. Reporting to the Board and Government
             </Typography>
-            <Typography sx={{ lineHeight: 2, fontWeight: 'light', marginBottom: 10 }}>
+            <Typography sx={{ lineHeight: 2, fontWeight: 'light', marginBottom: 5 }}>
               Donec odio nisi, lacinia ullamcorper magna elementum, ornare eleifend turpis. Curabitur eu tincidunt augue, non efficitur mi.
               Curabitur eu tincidunt augue, non efficitur mi. Ut pulvinar risus quis nisi ullamcorper, vel molestie libero
               Sed fringilla velit eget blandit molestie. Mauris nec urna leo. Sed eget viverra leo. Morbi sed nisi a mauris vulputate aliquam ac sit amet orci.             </Typography>
+
+            <Typography variant="h6" id="appendices">
+              Appendices
+            </Typography>
+            <Typography sx={{ lineHeight: 2, fontWeight: 'light', marginBottom: 5 }}>
+              1. In sit amet auctor dui, at dictum quam. Cras nisl ligula, dapibus eu lorem vitae, porttitor tincidunt eros. Quisque gravida augue in lacus eleifend, id bibendum enim viverra. Ut vel pharetra arcu, id consectetur quam. Morbi vitae libero non libero scelerisque sollicitudin vel eu eros. Pellentesque lobortis urna sit amet purus laoreet pellentesque. In felis dolor, bibendum eu euismod at, semper id elit. Quisque quis ante tellus. Mauris at augue et odio vulputate pulvinar nec vel justo. Etiam sed eleifend justo. Cras a odio dictum tellus varius gravida sit amet ut urna.
+
+              2. Fusce pretium urna pretium magna scelerisque, eu tristique tellus dignissim. Integer tempor auctor augue vitae finibus. Nam lobortis ullamcorper sapien, eget consequat ligula dictum eget. Quisque pretium, est vitae tempor pharetra, ex mauris aliquet enim, et lacinia enim nisl a urna. Fusce pretium urna pretium magna scelerisque, eu tristique tellus dignissim. Integer tempor auctor augue vitae finibus. Nam lobortis ullamcorper sapien, eget consequat ligula dictum eget. Quisque pretium, est vitae tempor pharetra, ex mauris aliquet enim, et lacinia enim nisl a urna.
+            </Typography>
+
           </Grid>
 
           {/* Right Column - Navigation Panel */}
           <Grid item xs={12} md={4}>
-            <Paper elevation={3} sx={{ padding: 3, height: 'auto', background: '#EFEFEF' }}>
-              <Typography variant="h5" gutterBottom>
+            <Paper elevation={3} sx={{ padding: 4, height: 'auto', background: '#EFEFEF', position: 'sticky', top: '80px' }}>
+              <Typography variant="h4" gutterBottom sx={{ mb: 2 }}>
                 Contents
               </Typography>
-              <Box>
-                {/* Dotted Divider */}
-                <Box sx={{ borderBottom: '1px dashed #ccc', mb: 2 }} />
+              {/* Dotted Divider */}
+              <Box sx={{ borderBottom: '1px dashed #ccc', mb: 2 }} />
+              {/* Table of Contents Links */}
+              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
+                  <span>Summary and Recommendations</span>
+                  <IconButton href="#summary" color="primary" sx={{ marginLeft: 'auto' }}>
+                    <AddCircleOutlineIcon />
+                  </IconButton>
+                </Typography>
+                <Divider sx={{ marginBottom: 2, color: 'black' }} />
 
-                {/* Table of Contents Links */}
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                  <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Summary and Recommendations</span>
-                    <IconButton href="#summary" color="primary" sx={{ marginLeft: 'auto' }}>
-                      <AddCircleOutlineIcon />
-                    </IconButton>
-                  </Typography>
-                  <Divider sx={{ marginBottom: 2 }} />
-                  <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center' }}>
-                    <span>1. Background</span>
-                    <IconButton href="#background" color="primary" sx={{ marginLeft: 'auto' }}>
-                      <AddCircleOutlineIcon />
-                    </IconButton>
-                  </Typography>
-                  <Divider sx={{ marginBottom: 2 }} />
+                <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
+                  <span>1. Background</span>
+                  <IconButton href="#background" color="primary" sx={{ marginLeft: 'auto' }}>
+                    <AddCircleOutlineIcon />
+                  </IconButton>
+                </Typography>
+                <Divider sx={{ marginBottom: 2 }} />
 
-                  <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center' }}>
-                    <span>2. Surveillance Approach</span>
-                    <IconButton href="#surveillance" color="primary" sx={{ marginLeft: 'auto' }}>
-                      <AddCircleOutlineIcon />
-                    </IconButton>
-                  </Typography>
-                  <Divider sx={{ marginBottom: 2 }} />
+                <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
+                  <span>2. Surveillance Approach</span>
+                  <IconButton href="#surveillance" color="primary" sx={{ marginLeft: 'auto' }}>
+                    <AddCircleOutlineIcon />
+                  </IconButton>
+                </Typography>
+                <Divider sx={{ marginBottom: 2 }} />
 
-                  <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center' }}>
-                    <span>3. Monitor Compliance and Review</span>
-                    <IconButton href="#monitor" color="primary" sx={{ marginLeft: 'auto' }}>
-                      <AddCircleOutlineIcon />
-                    </IconButton>
-                  </Typography>
-                  <Divider sx={{ marginBottom: 2 }} />
+                <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
+                  <span>3. Monitor Compliance and Review</span>
+                  <IconButton href="#monitor" color="primary" sx={{ marginLeft: 'auto' }}>
+                    <AddCircleOutlineIcon />
+                  </IconButton>
+                </Typography>
+                <Divider sx={{ marginBottom: 2 }} />
 
-                  <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center' }}>
-                    <span>4. Reporting to the Board and Government</span>
-                    <IconButton href="#reporting" color="primary" sx={{ marginLeft: 'auto' }}>
-                      <AddCircleOutlineIcon />
-                    </IconButton>
-                  </Typography>
-                  <Divider sx={{ marginBottom: 2 }} />
+                <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
+                  <span>4. Reporting to the Board and Government</span>
+                  <IconButton href="#reporting" color="primary" sx={{ marginLeft: 'auto' }}>
+                    <AddCircleOutlineIcon />
+                  </IconButton>
+                </Typography>
+                <Divider sx={{ marginBottom: 2 }} />
 
-                  <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Appendices</span>
-                    <IconButton href="#appendices" color="primary" sx={{ marginLeft: 'auto' }}>
-                      <AddCircleOutlineIcon />
-                    </IconButton>
-                  </Typography>
-                  <Divider sx={{ marginBottom: 2 }} />
+                <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
+                  <span>Appendices</span>
+                  <IconButton href="#appendices" color="primary" sx={{ marginLeft: 'auto' }}>
+                    <AddCircleOutlineIcon />
+                  </IconButton>
+                </Typography>
+                <Divider sx={{ marginBottom: 2 }} />
 
-                  <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Footnotes</span>
-                    <IconButton href="#footnotes" color="primary" sx={{ marginLeft: 'auto' }}>
-                      <AddCircleOutlineIcon />
-                    </IconButton>
-                  </Typography>
-                </Box>
+                <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light' }}>
+                  <span>Footnotes</span>
+                  <IconButton href="#footnotes" color="primary" sx={{ marginLeft: 'auto' }}>
+                    <AddCircleOutlineIcon />
+                  </IconButton>
+                </Typography>
+                <Divider sx={{ marginBottom: 2 }} />
+
               </Box>
             </Paper>
           </Grid>
         </Grid>
       </Container>
+      <CallToAction />
     </Layout>
   );
 };

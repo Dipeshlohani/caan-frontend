@@ -34,7 +34,7 @@ const navItems = [
   { name: 'Home', url: '/' },
   { name: 'About Us', url: '/about-us' },
   { name: 'Activities', url: '/activities' },
-  { name: 'Operation & Safety', url: '/operation-and-safety' },
+  { name: 'Operation & Safety', url: '/safety' },
   { name: 'Documents', url: '/documents' },
   { name: 'Forms', url: '/forms' },
   { name: 'Contact', url: '/contact-us' },
