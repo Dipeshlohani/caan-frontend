@@ -1,5 +1,6 @@
 import Banner from "@/components/banner";
 import { FiHome } from "react-icons/fi";
+import Search from "@/components/search/Search"; // Import your Search component
 
 export default function SearchLayout({
   children,
@@ -8,7 +9,8 @@ export default function SearchLayout({
 }) {
   return (
     <section>
-      <Banner name="Search Results" title="Search Results" icon={<FiHome />} />
+      <Banner name="Search Res" title="Search Results" icon={<FiHome />} />
+      <Search />
       {children}
     </section>
   );
