@@ -1,20 +1,24 @@
-import React from 'react'
-import styles from "./search.module.css";
-import { LuSearch } from 'react-icons/lu';
+// SearchResultBox.js
+import React from 'react';
 
-const Search = () => {
+const SearchResultBox = ({ results }) => {
   return (
-    <div className={styles['search-box']}>
-      <h3 className={styles.title}>Search Our Website</h3>
-      <div className={styles.bar}>
-        <LuSearch style={{ marginLeft: "1rem", position: "absolute" }} color="grey" />
-        <input className={styles.searchBar} type='search' placeholder='       What are you looking for....' />
-        <button className={styles.btn}>
-          Search Now
-        </button>
-      </div>
+    <div>
+      {results.map((result) => (
+        <div key={result.id} style={resultBoxStyle}>
+          <h3>{result.title}</h3>
+          <p>{result.description}</p>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Search;
+const resultBoxStyle = {
+  border: '1px solid #ccc',
+  borderRadius: '8px',
+  padding: '16px',
+  margin: '8px 0',
+};
+
+export default SearchResultBox;
