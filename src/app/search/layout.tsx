@@ -9,7 +9,7 @@ export default function SearchLayout({
 }) {
   return (
     <section>
-      <Banner name="Search Res" title="Search Results" icon={<FiHome />} />
+      <Banner name="Search Result" title="Search Results" icon={<FiHome />} />
       <Search />
       {children}
     </section>

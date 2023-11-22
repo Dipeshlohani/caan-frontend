@@ -5,6 +5,7 @@ import { Box, Button, TextField, Typography } from '@mui/material';
 import Layout from '@/components/layout';
 import CallToAction from '@/components/cta';
 import SearchPageStyles from '@/components/search/search.module.css';
+import Pagination from '@mui/material/Pagination';
 
 const SearchContainer = styled(Box)(SearchPageStyles.searchContainer);
 
@@ -16,41 +17,53 @@ const SearchPage = () => {
     console.log('Searching for:', searchQuery);
     // Example: Set state or perform other actions based on the search query
   };
-
-  
- return (
+  return (
     <Layout>
       <CallToAction />
+
       {/* SearchContainer to center the search design on the page */}
       <SearchContainer>
-        <TextField
-          id="search"
-          label="Search Now..."
-          variant="outlined"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          sx={{ marginTop: 2, marginBottom: 2, width: '50%' }}
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleSearch}
-          sx={{ marginTop: 2, width: '80px', height: '40px',borderRadius: '0' }}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '50vh',
+            marginBottom: '10px',
+          }}
         >
-          Search Now
-        </Button>
-        
+          <TextField
+            id="search"
+            label="Search Now..."
+            variant="outlined"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            sx={{ marginBottom: 2, width: '50%' }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSearch}
+            sx={{ width: '80px', height: '40px', borderRadius: '0', marginLeft: '10px' }}
+          >
+            Search Now
+          </Button>
+        </Box>
+
+        {/* Text above search results */}
         <Typography
-  sx={{
-    marginTop: 1,
-    width: '476px',
-    height: '29px',
-    top: '505px',
-    left: '434px',
-    position: 'absolute',
-    fontSize: '24px', // Added fontSize property
-  }}
->
+          sx={{
+            marginTop: 1,
+            width: '476px',
+            height: '29px',
+            fontSize: '24px',
+            marginRight: '20px',
+            textAlign: 'center',
+          }}
+        >
+  
+ 
   Showing search results for - Civil Airlines
 </Typography>
 
@@ -61,7 +74,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px', // Adjust as needed
         }}>
           Civil Airlines is the highway of the best thing in Nepal in 2023.
@@ -84,7 +97,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px', // Adjust as needed
         }}>
           The existence of independent external audit, and the accompanying potential for scrutiny improves performance.
@@ -104,7 +117,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px',
            // Adjust as needed
         }}>
@@ -126,7 +139,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px', // Adjust as needed
         }}>
           
@@ -148,7 +161,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px', // Adjust as needed
         }}>
           Morbi vitae libero non libero scelerisque sollicitudin vel eu eros. Pellentesque lobortis urna sit amet purus laoreet pellentesque
@@ -168,7 +181,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px', // Adjust as needed
         }}>
           Civil Airlines is the highway of the best thing in Nepal in 2023
@@ -189,7 +202,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px', // Adjust as needed
         }}>
           Quisque pretium, est vitae tempor pharetra, ex mauris aliquet enim, et lacinia enim nisl a urna.
@@ -210,7 +223,7 @@ const SearchPage = () => {
           fontWeight: 500,
           lineHeight: '25px',
           letterSpacing: '0em',
-          textAlign: 'left',
+          textAlign: 'center',
           marginTop: '10px', // Adjust as needed
         }}>
           Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
@@ -224,9 +237,9 @@ const SearchPage = () => {
             style={{ maxWidth: '100px', maxHeight: '100px' }}
           />
         </div>
-
-        {/* Repeat the above structure for Text 3 to Text 9 */}
-        {/* Continue for other text blocks and images */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+          <Pagination count={5} color="primary" />
+        </Box>
       </SearchContainer>
     </Layout>
   );

@@ -9,7 +9,7 @@ const Search = () => {
       <h3 className={styles.title}>Search Our Website</h3>
       <div className={styles.bar}>
         <LuSearch style={{ marginLeft: "1rem", position: "absolute" }} color="grey" />
-        <input className={styles.searchBar} type='search' placeholder='       What are you looking for....' />
+        <input className={styles.searchBar} type='search' placeholder='What are you looking for....' />
         <button className={styles.btn}>
           Search Now
         </button>
