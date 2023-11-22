@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+
 import styles from './activitydetail.module.css';
 
 async function getData(id) {
@@ -60,7 +63,11 @@ const ActivityDetail = async ({ activityId }) => {
             />
           </div>
           <h4>{date}</h4>
-          <div dangerouslySetInnerHTML={{ __html: description }}></div>
+          <div>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+              {description}
+            </ReactMarkdown>
+          </div>
         </div>
         <div className={styles.activity__Lists}>
           <h3>Other Latest Activities</h3>

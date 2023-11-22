@@ -76,7 +76,7 @@ const ContactUsPage = () => {
             height="400"
             frameBorder="0"
             style={{ border: 0, margin: "50px 0" }}
-            src="https://www.google.com/maps/embed?q=CAAN&t=&z=10&ie=UTF8&iwloc=&output=embed"
+            src="https://www.google.com/maps/embed?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&q=CAAN&t=&z=10&ie=UTF8&iwloc=&output=embed"
             allowFullScreen
           />
 

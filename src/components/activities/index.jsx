@@ -47,7 +47,7 @@ const OurActivities = ({ activities }) => {
 
         <Grid container rowSpacing={{ xs: 3, md: 5 }} columnSpacing={0.5}>
           {activities.map((activity, index) => (
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={3} key={index}>
               <Card>
                 <CardMedia
                   component="img"

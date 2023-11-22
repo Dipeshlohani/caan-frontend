@@ -49,7 +49,7 @@ function Navbar() {
 
   return (
     <Container maxWidth="lg">
-      <AppBar position="static" color="transparent" elevation={0}>
+      <AppBar position="static" color="transparent" elevation={0} id="navbar">
         <Toolbar disableGutters>
           <Box display={{ xs: "none", md: "flex" }}>
             <Logo />

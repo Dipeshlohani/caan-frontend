@@ -1,10 +1,19 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import { Container, Grid, Paper, Typography, Box, Divider, Button, IconButton } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Layout from "@/components/layout";
 import CallToAction from '@/components/cta';
 
 const CivilAviationSafetyPage = () => {
+  const scrollToBookmark = (id) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    }
+  };
+
   return (
     <Layout>
       <Container>
@@ -63,7 +72,56 @@ const CivilAviationSafetyPage = () => {
             <Typography variant="h4" gutterBottom sx={{ fontWeight: 300, margin: "20px 0" }}>
               Summary and Recommendations
             </Typography>
+            {/*  */}
             {/* Content goes here */}
+
+            <Box bgcolor="#EFEFEF" p={3} id="summary">
+              <Grid container spacing={3}>
+                {/* Left Column */}
+                <Grid item xs={12} md={6}>
+                  <Box bgcolor="#2161CD" p={2}>
+                    <Typography variant="h5" color="white">
+                      Why did we do this audit?
+                    </Typography>
+                  </Box>
+                  <Box p={2}>
+                    {/* Bullet Points and Texts */}
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus
+                    </Typography>
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      2. Praesent at est placerat, tincidunt eros aliquam, pharetra sem. Etiam dignissim ante
+                    </Typography>
+                    {/* Add more bullet points and texts as needed */}
+                  </Box>
+                </Grid>
+
+                {/* Right Column */}
+                <Grid item xs={12} md={6}>
+                  <Box bgcolor="#2161CD" p={2}>
+                    <Typography variant="h5" color="white">
+                      What did we find?
+                    </Typography>
+                  </Box>
+                  <Box p={2}>
+                    {/* Bullet Points and Texts */}
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus
+                    </Typography>
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      2. Praesent at est placerat, tincidunt eros aliquam, pharetra sem. Etiam dignissim ante
+                    </Typography>
+                    {/* Add more bullet points and texts as needed */}
+                  </Box>
+                </Grid>
+              </Grid>
+
+              {/* Button */}
+              <Button variant="contained" fullWidth sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white' }}>
+                Expand Audit Snapshot
+              </Button>
+            </Box>
+
             <Typography variant="h6" id="background">
               1. Background
             </Typography>
@@ -115,7 +173,7 @@ const CivilAviationSafetyPage = () => {
 
           {/* Right Column - Navigation Panel */}
           <Grid item xs={12} md={4}>
-            <Paper elevation={3} sx={{ padding: 4, height: 'auto', background: '#EFEFEF', position: 'sticky', top: '80px' }}>
+            <Paper elevation={3} sx={{ padding: 4, height: 'auto', background: '#EFEFEF', position: 'sticky', top: '90px' }}>
               <Typography variant="h4" gutterBottom sx={{ mb: 2 }}>
                 Contents
               </Typography>
@@ -125,7 +183,7 @@ const CivilAviationSafetyPage = () => {
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
                   <span>Summary and Recommendations</span>
-                  <IconButton href="#summary" color="primary" sx={{ marginLeft: 'auto' }}>
+                  <IconButton onClick={() => scrollToBookmark('summary')} color="primary" sx={{ marginLeft: 'auto' }}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Typography>
@@ -133,7 +191,7 @@ const CivilAviationSafetyPage = () => {
 
                 <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
                   <span>1. Background</span>
-                  <IconButton href="#background" color="primary" sx={{ marginLeft: 'auto' }}>
+                  <IconButton onClick={() => scrollToBookmark('background')} color="primary" sx={{ marginLeft: 'auto' }}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Typography>
@@ -141,7 +199,7 @@ const CivilAviationSafetyPage = () => {
 
                 <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
                   <span>2. Surveillance Approach</span>
-                  <IconButton href="#surveillance" color="primary" sx={{ marginLeft: 'auto' }}>
+                  <IconButton onClick={() => scrollToBookmark('surveillance')} color="primary" sx={{ marginLeft: 'auto' }}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Typography>
@@ -149,7 +207,7 @@ const CivilAviationSafetyPage = () => {
 
                 <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
                   <span>3. Monitor Compliance and Review</span>
-                  <IconButton href="#monitor" color="primary" sx={{ marginLeft: 'auto' }}>
+                  <IconButton onClick={() => scrollToBookmark('monitor')} color="primary" sx={{ marginLeft: 'auto' }}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Typography>
@@ -157,7 +215,7 @@ const CivilAviationSafetyPage = () => {
 
                 <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
                   <span>4. Reporting to the Board and Government</span>
-                  <IconButton href="#reporting" color="primary" sx={{ marginLeft: 'auto' }}>
+                  <IconButton onClick={() => scrollToBookmark('reporting')} color="primary" sx={{ marginLeft: 'auto' }}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Typography>
@@ -165,7 +223,7 @@ const CivilAviationSafetyPage = () => {
 
                 <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
                   <span>Appendices</span>
-                  <IconButton href="#appendices" color="primary" sx={{ marginLeft: 'auto' }}>
+                  <IconButton onClick={() => scrollToBookmark('appendices')} color="primary" sx={{ marginLeft: 'auto' }}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Typography>
@@ -173,7 +231,7 @@ const CivilAviationSafetyPage = () => {
 
                 <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light' }}>
                   <span>Footnotes</span>
-                  <IconButton href="#footnotes" color="primary" sx={{ marginLeft: 'auto' }}>
+                  <IconButton onClick={() => scrollToBookmark('footnotes')} color="primary" sx={{ marginLeft: 'auto' }}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Typography>
