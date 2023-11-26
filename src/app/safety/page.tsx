@@ -4,6 +4,8 @@ import { Container, Grid, Paper, Typography, Box, Divider, Button, IconButton } 
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Layout from "@/components/layout";
 import CallToAction from '@/components/cta';
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import PrintIcon from '@mui/icons-material/Print';
 
 const CivilAviationSafetyPage = () => {
   const scrollToBookmark = (id) => {
@@ -76,10 +78,10 @@ const CivilAviationSafetyPage = () => {
             {/* Content goes here */}
 
             <Box bgcolor="#EFEFEF" p={3} id="summary">
-              <Grid container spacing={3}>
+              <Grid container spacing={3} >
                 {/* Left Column */}
                 <Grid item xs={12} md={6}>
-                  <Box bgcolor="#2161CD" p={2}>
+                  <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
                     <Typography variant="h5" color="white">
                       Why did we do this audit?
                     </Typography>
@@ -98,7 +100,7 @@ const CivilAviationSafetyPage = () => {
 
                 {/* Right Column */}
                 <Grid item xs={12} md={6}>
-                  <Box bgcolor="#2161CD" p={2}>
+                  <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
                     <Typography variant="h5" color="white">
                       What did we find?
                     </Typography>
@@ -117,8 +119,148 @@ const CivilAviationSafetyPage = () => {
               </Grid>
 
               {/* Button */}
-              <Button variant="contained" fullWidth sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white' }}>
+              <Button variant="contained" sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white', width: '50%' }}>
                 Expand Audit Snapshot
+              </Button>
+            </Box>
+
+            <Box bgcolor="#EFEFEF" p={3} id="summary">
+              <Grid container spacing={3}>
+                {/* Left Column */}
+                <Grid item xs={12} md={6}>
+                  <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
+                    <Typography variant="h5" color="white">
+                      Why did we do this audit?
+                    </Typography>
+                  </Box>
+                  <Box p={2}>
+                    {/* Bullet Points and Texts */}
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus
+                    </Typography>
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      2. Praesent at est placerat, tincidunt eros aliquam, pharetra sem. Etiam dignissim ante. Integer gravida massa quis odio auctor laoreet. Curabitur lacinia, urna id ultricies scelerisque, elit quam placerat erat, eu pretium tortor elit sit amet orci. Duis tincidunt bibendum ligula, quis venenatis leo mattis ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+                    </Typography>
+                    {/* Add more bullet points and texts as needed */}
+                  </Box>
+                </Grid>
+                {/* Right Column */}
+                <Grid item xs={12} md={6}>
+                  <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
+                    <Typography variant="h5" color="white">
+                      What did we find?
+                    </Typography>
+                  </Box>
+                  <Box p={2}>
+                    {/* Bullet Points and Texts */}
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus
+                    </Typography>
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      2. Praesent at est placerat, tincidunt eros aliquam, pharetra sem. Etiam dignissim ante
+                    </Typography>
+                  </Box>
+
+                  <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
+                    <Typography variant="h5" color="white">
+                      What did we recommend?
+                    </Typography>
+                  </Box>
+                  <Box p={2}>
+                    {/* Bullet Points and Texts */}
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus
+                    </Typography>
+                    <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                      2. Praesent at est placerat, tincidunt eros aliquam, pharetra sem. Etiam dignissim ante
+                    </Typography>
+                    {/* Add more bullet points and texts as needed */}
+                  </Box>
+                </Grid>
+
+              </Grid>
+              <Grid item>
+                <Box bgcolor="#2161CD" p={2} sx={{ width: '42%', borderRadius: 2 }}>
+                  <Typography variant="h5" color="white">
+                    Key facts
+                  </Typography>
+                </Box>
+                <Box p={2}>
+                  {/* Bullet Points and Texts */}
+                  <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                    1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus vitae neque nec hendrerit. Sed ipsum tortor, porttitor ac mattis ac
+                  </Typography>
+                  <Typography variant="body1" sx={{ lineHeight: 2, fontWeight: 'light', }}>
+                    2. Praesent at est placerat, tincidunt eros aliquam, pharetra sem. Etiam dignissim ante vel arcu vehicula dapibus. Pellentesque consequat ante non aliquam sodales. Pellentesque vitae urna nulla.                  </Typography>
+                  {/* Add more bullet points and texts as needed */}
+                </Box>
+              </Grid>
+              {/* Stats Circles */}
+              <Grid container spacing={3} mt={3}>
+                <Grid item xs={12} md={4} p={5} >
+                  <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 3, textAlign: 'center', borderRadius: '50%', height: '150px' }}>
+                    {/* Your stat goes here */}
+                    <Typography variant="h4" sx={{ mt: 6, fontSize: 42 }}>
+                      1002
+                    </Typography>
+                  </Paper>
+                  {/* Small description below the circle */}
+                  <Typography variant="body2" sx={{ textAlign: 'center', p: 4, }}>
+                    Lorem ipsum dolar sit amet
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={4} p={5}>
+                  <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 3, textAlign: 'center', borderRadius: '50%', height: '150px' }}>
+                    {/* Your stat goes here */}
+                    <Typography variant="h4" sx={{ mt: 6, fontSize: 42 }}>
+                      344
+                    </Typography>
+                  </Paper>
+                  {/* Small description below the circle */}
+                  <Typography variant="body2" sx={{ textAlign: 'center', p: 4 }}>
+                    Lorem ipsum dolar sit amet
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={4} p={5}>
+                  <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 3, textAlign: 'center', borderRadius: '50%', height: '150px' }}>
+                    {/* Your stat goes here */}
+                    <Typography variant="h4" sx={{ mt: 6, fontSize: 42 }}>
+                      1678
+                    </Typography>
+                  </Paper>
+                  {/* Small description below the circle */}
+                  <Typography variant="body2" sx={{ textAlign: 'center', p: 4 }}>
+                    Lorem ipsum dolar sit amet
+                  </Typography>
+                </Grid>
+                {/* Repeat similar structure for other circles */}
+              </Grid>
+
+              {/* Divider Line */}
+              <Divider sx={{ my: 1 }} />
+
+              {/* Download and Print Options */}
+              <Grid container spacing={3} justifyContent="center" alignItems="center">
+                <Grid item xs={6} md={3} sx={{ textAlign: 'center' }}>
+                  <IconButton color="primary">
+                    <NoteAddIcon />
+                  </IconButton>
+                  <Typography variant="body2">
+                    Download File
+                  </Typography>
+                </Grid>
+                <Grid item xs={6} md={3} sx={{ textAlign: 'center' }}>
+                  <IconButton color="primary">
+                    <PrintIcon />
+                  </IconButton>
+                  <Typography variant="body2">
+                    Print Document
+                  </Typography>
+                </Grid>
+              </Grid>
+              {/* Button */}
+              <Button variant="contained" fullWidth sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white' }}>
+                Collapse Audit Snapshot
               </Button>
             </Box>
 
@@ -141,7 +283,8 @@ const CivilAviationSafetyPage = () => {
               Curabitur eu tincidunt augue, non efficitur mi. Ut pulvinar risus quis nisi ullamcorper, vel molestie libero
               Sed fringilla velit eget blandit molestie. Mauris nec urna leo. Sed eget viverra leo. Morbi sed nisi a mauris vulputate aliquam ac sit amet orci.
               Nulla ornare quam purus, eu dignissim felis pulvinar nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-              Vivamus a sapien malesuada, blandit purus commodo, condimentum justo. Pellentesque eget fringilla quam.          </Typography>
+              Vivamus a sapien malesuada, blandit purus commodo, condimentum justo. Pellentesque eget fringilla quam.
+            </Typography>
 
             <Typography variant="h6" id="monitor">
               3. Monitor Compliance and Review
@@ -150,7 +293,8 @@ const CivilAviationSafetyPage = () => {
               Donec odio nisi, lacinia ullamcorper magna elementum, ornare eleifend turpis. Curabitur eu tincidunt augue, non efficitur mi.
               Curabitur eu tincidunt augue, non efficitur mi. Ut pulvinar risus quis nisi ullamcorper, vel molestie libero
               Sed fringilla velit eget blandit molestie. Mauris nec urna leo. Sed eget viverra leo. Morbi sed nisi a mauris vulputate aliquam ac sit amet orci.
-              Nulla ornare quam purus, eu dignissim felis pulvinar nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.          </Typography>
+              Nulla ornare quam purus, eu dignissim felis pulvinar nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            </Typography>
 
             <Typography variant="h6" id="reporting">
               4. Reporting to the Board and Government
@@ -158,7 +302,8 @@ const CivilAviationSafetyPage = () => {
             <Typography sx={{ lineHeight: 2, fontWeight: 'light', marginBottom: 5 }}>
               Donec odio nisi, lacinia ullamcorper magna elementum, ornare eleifend turpis. Curabitur eu tincidunt augue, non efficitur mi.
               Curabitur eu tincidunt augue, non efficitur mi. Ut pulvinar risus quis nisi ullamcorper, vel molestie libero
-              Sed fringilla velit eget blandit molestie. Mauris nec urna leo. Sed eget viverra leo. Morbi sed nisi a mauris vulputate aliquam ac sit amet orci.             </Typography>
+              Sed fringilla velit eget blandit molestie. Mauris nec urna leo. Sed eget viverra leo. Morbi sed nisi a mauris vulputate aliquam ac sit amet orci.
+            </Typography>
 
             <Typography variant="h6" id="appendices">
               Appendices
@@ -241,9 +386,9 @@ const CivilAviationSafetyPage = () => {
             </Paper>
           </Grid>
         </Grid>
-      </Container>
+      </Container >
       <CallToAction />
-    </Layout>
+    </Layout >
   );
 };
 
