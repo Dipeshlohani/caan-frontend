@@ -1,6 +1,5 @@
 import Banner from "@/components/banner";
 import { FiHome } from "react-icons/fi";
-
 export default function SafetyLayout({
   children,
 }: {
