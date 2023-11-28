@@ -9,6 +9,11 @@ import Layout from "@/components/layout";
 import CallToAction from '@/components/cta';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import PrintIcon from '@mui/icons-material/Print';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FileOpenIcon from '@mui/icons-material/FileOpen';
+import DescriptionIcon from '@mui/icons-material/Description';
+import DifferenceIcon from '@mui/icons-material/Difference';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const CivilAviationSafetyPage = () => {
   const [detail, setDetail] = useState({
@@ -85,13 +90,16 @@ const CivilAviationSafetyPage = () => {
             {/*  */}
             {/* Content goes here */}
 
-            <Box bgcolor="#EFEFEF" p={3} id="summary">
+            <Box bgcolor="#EFEFEF" p={3} id="summary" mb={2} sx={{ borderRadius: 3, overflow: 'hidden' }} >
               <Grid container spacing={3} >
                 {/* Left Column */}
                 {detail.attributes.Featured.map(item => (
                   <Grid item xs={12} md={6}>
-                    <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
+                    <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2, overflow: 'hidden' }}>
                       <Typography variant="h5" color="white">
+                        <IconButton sx={{ color: "#59C0EC" }}>
+                          <DescriptionIcon />
+                        </IconButton>
                         {item.question}
                       </Typography>
                     </Box>
@@ -109,18 +117,25 @@ const CivilAviationSafetyPage = () => {
               </Grid>
 
               {/* Button */}
-              <Button variant="contained" sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white', width: '50%' }}>
+              <Button variant="contained" sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white', width: '50%', borderRadius: 3, overflow: 'hidden', mx: 'auto', display: 'block' }}>
                 Expand Audit Snapshot
+                <IconButton sx={{ color: '#FFFFFF' }}>
+                  <ExpandMoreIcon />
+                </IconButton>
+
               </Button>
             </Box>
 
-            <Box bgcolor="#EFEFEF" p={3} id="summary">
+            <Box bgcolor="#EFEFEF" p={3} id="summary" sx={{ borderRadius: 3, overflow: 'hidden' }}>
               <Grid container spacing={3}>
                 {/* Left Column */}
                 {detail.attributes.FeaturedDetail.map(item => (
                   <Grid item xs={12} md={6}>
                     <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
                       <Typography variant="h5" color="white">
+                        <IconButton sx={{ color: "#59C0EC" }}>
+                          <FileOpenIcon />
+                        </IconButton>
                         {item.title}
                       </Typography>
                     </Box>
@@ -141,6 +156,9 @@ const CivilAviationSafetyPage = () => {
               <Grid item>
                 <Box bgcolor="#2161CD" p={2} sx={{ width: '42%', borderRadius: 2 }}>
                   <Typography variant="h5" color="white">
+                    <IconButton sx={{ color: "#59C0EC" }}>
+                      <DifferenceIcon />
+                    </IconButton>
                     Key facts
                   </Typography>
                 </Box>
@@ -154,10 +172,10 @@ const CivilAviationSafetyPage = () => {
                 </Box>
               </Grid>
               {/* Stats Circles */}
-              <Grid container spacing={3} mt={3}>
+              <Grid container spacing={2} mt={3}>
                 {detail.attributes.stats.map(item => (
-                  <Grid item xs={12} md={4} p={5}>
-                    <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 3, textAlign: 'center', borderRadius: '50%', height: '150px' }}>
+                  <Grid item xs={12} md={4} p={5} key={item.stat}>
+                    <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 3, textAlign: 'center', borderRadius: '50%', width: '150px', height: '150px', mx: 'auto', display: 'block', ml: 3 }}>
                       {/* Your stat goes here */}
                       <Typography variant="h4" sx={{ mt: 6, fontSize: 42 }}>
                         {item.stat}
@@ -171,31 +189,44 @@ const CivilAviationSafetyPage = () => {
                 ))}
               </Grid>
 
+
+
+
               {/* Divider Line */}
-              <Divider sx={{ my: 1 }} />
+              <Divider sx={{ my: 5, marginTop: "1px" }} />
 
               {/* Download and Print Options */}
               <Grid container spacing={3} justifyContent="center" alignItems="center">
-                <Grid item xs={6} md={3} sx={{ textAlign: 'center' }}>
-                  <IconButton color="primary">
-                    <NoteAddIcon />
-                  </IconButton>
-                  <Typography variant="body2">
-                    Download File
-                  </Typography>
+                <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <IconButton color="#878787">
+                      <NoteAddIcon sx={{ fontSize: '1.5em' }} />
+                    </IconButton>
+                    <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center' }}>
+                      Download File
+                    </Typography>
+                  </div>
                 </Grid>
-                <Grid item xs={6} md={3} sx={{ textAlign: 'center' }}>
-                  <IconButton color="primary">
-                    <PrintIcon />
-                  </IconButton>
-                  <Typography variant="body2">
-                    Print Document
-                  </Typography>
+                <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <IconButton sx={{ color: "#878787" }}>
+                      <PrintIcon sx={{ fontSize: '1.5em' }} />
+                    </IconButton>
+
+
+                    <Typography variant="body2">
+                      Print Document
+                    </Typography>
+                  </div>
                 </Grid>
               </Grid>
+
               {/* Button */}
-              <Button variant="contained" fullWidth sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white' }}>
+              <Button variant="contained" fullWidth sx={{ marginTop: 2, bgcolor: '#2161CD', color: 'white', width: '60%', mx: 'auto', display: 'block' }}>
                 Collapse Audit Snapshot
+                <IconButton sx={{ color: '#FFFFFF' }}>
+                  <KeyboardArrowUpIcon />
+                </IconButton>
               </Button>
             </Box>
 
