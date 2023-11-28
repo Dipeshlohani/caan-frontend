@@ -1,19 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./search.module.css";
 import { LuSearch } from 'react-icons/lu';
+import { Box, Button, TextField, Paper } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Search = () => {
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    // Perform your custom search logic using searchQuery
+    // Update your search results accordingly
+    console.log('Performing search for:', searchQuery.hit);
+  };
+  const [searchQuery, setSearchQuery] = useState('');
+
+
   return (
-    <div className={styles['search-box']}>
-      <h3 className={styles.title}>Search Our Website</h3>
-      <div className={styles.bar}>
-        <LuSearch style={{ marginLeft: "1rem", position: "absolute" }} color="grey" />
-        <input className={styles.searchBar} type='search' placeholder='       What are you looking for....' />
-        <button className={styles.btn}>
-          Search Now
-        </button>
-      </div>
-    </div>
+    <Box display="flex" alignItems="center" justifyContent="space-between" mt={5} mb={3}>
+      <TextField
+        label="Search now"
+        variant="outlined"
+        placeholder="Search now"
+        fullWidth
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        InputProps={{ endAdornment: <SearchIcon color="primary" onClick={handleSearch} /> }}
+      />
+      <Button variant="contained" color="primary" sx={{ marginLeft: 2 }} onClick={handleSearch}>
+        Search Now
+      </Button>
+    </Box>
   )
 }
 
