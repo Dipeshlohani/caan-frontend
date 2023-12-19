@@ -172,49 +172,52 @@ const CivilAviationSafetyPage = () => {
                 </Box>
               </Grid>
               {/* Stats Circles */}
-              <Grid container spacing={2} mt={3}>
+              <Grid container spacing={2} mt={1}>
                 {detail.attributes.stats.map(item => (
-                  <Grid item xs={12} md={4} p={5} key={item.stat}>
-                    <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 3, textAlign: 'center', borderRadius: '50%', width: '150px', height: '150px', mx: 'auto', display: 'block', ml: 3 }}>
+                  <Grid item xs={12} md={4} p={3} key={item.stat}>
+                    <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 2, textAlign: 'center', borderRadius: '50%', width: '150px', height: '150px', mx: 'auto', display: 'block', ml: 3 }}>
                       {/* Your stat goes here */}
-                      <Typography variant="h4" sx={{ mt: 6, fontSize: 42 }}>
+                      <Typography variant="h4" sx={{ mt: 4, fontSize: 42 }}>
                         {item.stat}
                       </Typography>
                     </Paper>
                     {/* Small description below the circle */}
-                    <Typography variant="body2" sx={{ textAlign: 'center', p: 4 }}>
+                    <Typography variant="body2" sx={{ textAlign: 'center', p: 0.5, pt: '0.2px', mt: 0.2 }}>
                       {item.description}
                     </Typography>
                   </Grid>
                 ))}
               </Grid>
 
-
-
-
               {/* Divider Line */}
-              <Divider sx={{ my: 5, marginTop: "1px" }} />
+              <Divider sx={{ my: 1, marginBottom: "2px", pt: 0.2 }} />
+
+
+
+
+
+
 
               {/* Download and Print Options */}
               <Grid container spacing={3} justifyContent="center" alignItems="center">
-                <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
+                <Grid item xs={12} md={4} sx={{ textAlign: 'center', marginTop: '20px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <IconButton color="#878787">
-                      <NoteAddIcon sx={{ fontSize: '1.5em' }} />
+                      <NoteAddIcon sx={{ fontSize: '1em' }} />
                     </IconButton>
-                    <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', pt: 2 }}>
                       Download File
                     </Typography>
                   </div>
                 </Grid>
-                <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Grid item xs={12} md={3} sx={{ textAlign: 'center', marginTop: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
                     <IconButton sx={{ color: "#878787" }}>
-                      <PrintIcon sx={{ fontSize: '1.5em' }} />
+                      <PrintIcon sx={{ fontSize: '1em' }} />
                     </IconButton>
 
 
-                    <Typography variant="body2">
+                    <Typography variant="body2" sx={{ pt: 2 }}>
                       Print Document
                     </Typography>
                   </div>
