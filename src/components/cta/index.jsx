@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button, Container, Stack } from '@mui/material';
+import Link from 'next/link';
 
 const CallToAction = () => {
   return (
@@ -25,9 +26,12 @@ const CallToAction = () => {
             Get all the latest news, updates and documents delivered directly to
             your inbox instantly
           </Typography>
-          <Button variant="contained" color="primary">
-            Subscribe to ANSSD
-          </Button>
+          <Link href={'/contact-us'}>
+            <Button variant="contained" color="primary">
+              Contact Us
+              {/* Subscribe to ANSSD */}
+            </Button>
+          </Link>
         </Stack>
       </Container>
     </Box>

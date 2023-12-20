@@ -12,6 +12,7 @@ import {
   Grid,
 } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Link from 'next/link';
 
 const OurActivities = ({ activities }) => {
   return (
@@ -67,9 +68,11 @@ const OurActivities = ({ activities }) => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant="text" endIcon={<ArrowForwardIcon />}>
-                    Read More
-                  </Button>
+                  <Link href={`/activities/${activity.attributes.slug}`}>
+                    <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                      Read More
+                    </Button>
+                  </Link>
                 </CardActions>
               </Card>
             </Grid>

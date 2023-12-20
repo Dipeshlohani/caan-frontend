@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import ReactHtmlParser from 'react-html-parser';
 
 import styles from './activitydetail.module.css';
 
@@ -69,7 +70,8 @@ const ActivityDetail = async ({ activityId }) => {
           </div>
           <h4>{date}</h4>
           <div>
-            <div dangerouslySetInnerHTML={{ __html: description }}></div>
+            {/* <div dangerouslySetInnerHTML={{ __html: description }}></div> */}
+            {ReactHtmlParser(description)}
           </div>
         </div>
         <div className={styles.activity__Lists}>

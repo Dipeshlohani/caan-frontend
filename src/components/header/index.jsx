@@ -118,9 +118,11 @@ const Header = () => {
                 size="large"
                 aria-label="search"
                 color="inherit"
-                onClick={handleSearchDrawer}
+                // onClick={handleSearchDrawer}
               >
-                <SearchIcon />
+                <Link href={'/search'}>
+                  <SearchIcon />
+                </Link>
               </IconButton>
             </Toolbar>
           </Container>
