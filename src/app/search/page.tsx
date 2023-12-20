@@ -11,48 +11,36 @@ import { useHits } from 'react-instantsearch';
 import SearchBar from "./SearchBar"
 
 import SearchIcon from '@mui/icons-material/Search';
+import Link from 'next/link';
 
 const searchClient = instantMeiliSearch(
   'http://localhost:7700/', // Host
   'SDj-iFrEiDstQrijYQoHdyk2aKxT8rpvONyME24a-kk', // API key
-  {
-  }
+  { finitePagination: true }
 )
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedIndex, setSelectedIndex] = useState('activity');
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    // Perform your custom search logic using searchQuery
-    // Update your search results accordingly
-    try {
-      // Use the MeiliSearch client to perform a search
-      const searchResults = await searchClient.search('activity', searchQuery);
-
-      // Log the search results for now (you should update your state or do something meaningful)
-      console.log('Search Results:', searchResults);
-    } catch (error) {
-      console.error('Error during search:', error.message);
-      // Handle errors as needed
-    }
+  const handleIndexChange = (newIndex) => {
+    setSelectedIndex(newIndex);
   };
 
   return (
     <Layout>
       <Container>
-        <InstantSearch indexName="activity" searchClient={searchClient}>
-          {/* Search Bar */}
-          <SearchBar />
+        <InstantSearch indexName={selectedIndex} searchClient={searchClient}>
+          {/* Search Bar with Index Dropdown */}
+          <SearchBar onIndexChange={handleIndexChange} />
           {/* Search Results Header */}
           <Typography variant="h5" gutterBottom>
-            Showing search results for - Civil Airlines section
+            Showing search results for - {searchQuery}
           </Typography>
           {/* Search Results */}
           <Paper elevation={0} sx={{ p: 2 }}>
             <CustomHits />
           </Paper>
-
           {/* Dotted Divider Line */}
           <Divider sx={{ mb: 2 }} />
         </InstantSearch>
@@ -64,10 +52,24 @@ const Search = () => {
 
 function CustomHits(props) {
   const { hits, sendEvent } = useHits(props);
+
+  const getLinkPath = (hit) => {
+    if (hit._meilisearch_id.includes('activity')) {
+      return `/activities/${hit.id}`;
+    }
+    if (hit._meilisearch_id.includes('about-us')) {
+      return `/about-us`;
+    }
+    if (hit._meilisearch_id.includes('document')) {
+      return `/document`;
+    }
+  };
+
+  console.log(hits, '=')
   return (
     <ol style={{ textDecoration: 'none' }}>
       {hits.map((hit) => (
-        <>
+        <Link href={getLinkPath(hit)} style={{ textDecoration: 'none' }}>
           <Box display="flex" alignItems="center" mb={2}>
             <img src={'http://localhost:1337' + hit?.img_url?.url} alt="Result 1" style={{ width: 100, height: 90, marginRight: 2 }} />
             <Typography variant="body1" sx={{ p: 3 }}>
@@ -76,10 +78,10 @@ function CustomHits(props) {
             {/* Divider Line */}
           </Box>
           <Divider sx={{ my: 2 }} />
-        </>
-
-      ))}
-    </ol>
+        </Link>
+      ))
+      }
+    </ol >
   );
 }
 

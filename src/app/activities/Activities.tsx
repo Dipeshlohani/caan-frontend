@@ -20,9 +20,9 @@ const Activities = () => {
   };
   React.useEffect(() => {
     async function fetchData() {
-      const result = await getData();
-      const past = result.data.filter((d) => new Date(d.attributes.date) <= new Date())
-      const upcoming = result.data.filter((d) => new Date(d.attributes.date) >= new Date())
+      const { data } = await getData();
+      const past = data.filter((d) => new Date(d.attributes.date) <= new Date())
+      const upcoming = data.filter((d) => new Date(d.attributes.date) >= new Date())
       setPastData(past);
       setUpcomingData(upcoming);
     }

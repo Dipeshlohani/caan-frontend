@@ -25,7 +25,6 @@ const ActivityCard = ({ data1 }: any) => {
 
   const endIndex = startIndex + itemsPerPage;
   const itemsToDisplay = data1.slice(startIndex, endIndex);
-
   const handlePageChange = (event: any, page: any) => {
     setCurrentPage(page);
   };
@@ -34,11 +33,10 @@ const ActivityCard = ({ data1 }: any) => {
       <Grid container mt={4} spacing={3}>
         {itemsToDisplay.map((d, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={index} >
-
             <Card elevation={0}>
               <CardMedia
                 component="img"
-                image={orig + d.attributes.img_url.data.attributes.url}
+                image={orig + d.attributes.img_url?.data.attributes.url}
                 alt="activity image"
                 style={{ borderRadius: "15px", height: "250px" }}
               />
@@ -65,7 +63,7 @@ const ActivityCard = ({ data1 }: any) => {
                   padding: "0px",
                 }}
               >
-                <Link href="activities/[slug]" as={`activities/${d.id}`}>
+                <Link href={`/activities/${d.attributes.slug}`}>
                   <Button
                     endIcon={<ArrowForwardIcon />}
                     sx={{

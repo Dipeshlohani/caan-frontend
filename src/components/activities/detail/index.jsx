@@ -15,7 +15,8 @@ async function getData(id) {
       Authorization: `bearer ${process.env.API_KEY}`,
     },
   };
-  let url = `${process.env.HOST}/api/activities/${id}?populate=*`;
+  // let url = `${process.env.HOST}/api/activities/${id}?populate=*`;
+  let url = `${process.env.HOST}/api/activities?filters[slug][$eq]=${id}&populate=*`;
   const res = await fetch(url, options);
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -44,11 +45,15 @@ async function getPastActivities() {
 
 const ActivityDetail = async ({ activityId }) => {
   let { data } = await getData(activityId);
+  if (!data) {
+    throw new Error('Activity not found');
+  }
+  data = data[0]?.attributes;
   let pastActivities = await getPastActivities();
-  let img_url = process.env.HOST + data.attributes.img_url.data.attributes.url;
-  let date = data.attributes.date;
-  let description = data.attributes.description;
-  let title = data.attributes.name;
+  let img_url = process.env.HOST + data.img_url?.data.attributes.url;
+  let date = data.date;
+  let description = data.description;
+  let title = data.name;
   return (
     <div className="container">
       <div className={styles.activity__Container}>
@@ -64,9 +69,7 @@ const ActivityDetail = async ({ activityId }) => {
           </div>
           <h4>{date}</h4>
           <div>
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-              {description}
-            </ReactMarkdown>
+            <div dangerouslySetInnerHTML={{ __html: description }}></div>
           </div>
         </div>
         <div className={styles.activity__Lists}>
