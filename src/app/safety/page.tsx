@@ -58,8 +58,8 @@ const CivilAviationSafetyPage = () => {
           {/* Right Column - Summary Rows with Headings and Descriptions */}
           <Grid item xs={12} md={4}>
             <Box sx={{ padding: 3, height: 'auto', margin: '60px 0' }}>
-              {detail.attributes.summary.map(item => (
-                <Box sx={{ marginBottom: 2 }}>
+              {detail.attributes.summary.map((item, index) => (
+                <Box sx={{ marginBottom: 2 }} key={index}>
                   <Typography variant="h5" gutterBottom>
                     {item.title}
                   </Typography>
@@ -88,8 +88,8 @@ const CivilAviationSafetyPage = () => {
             <Box bgcolor="#EFEFEF" p={3} id="summary">
               <Grid container spacing={3} >
                 {/* Left Column */}
-                {detail.attributes.Featured.map(item => (
-                  <Grid item xs={12} md={6}>
+                {detail.attributes.Featured.map((item, index) => (
+                  <Grid item xs={12} md={6} key={index}>
                     <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
                       <Typography variant="h5" color="white">
                         {item.question}
@@ -117,8 +117,8 @@ const CivilAviationSafetyPage = () => {
             <Box bgcolor="#EFEFEF" p={3} id="summary">
               <Grid container spacing={3}>
                 {/* Left Column */}
-                {detail.attributes.FeaturedDetail.map(item => (
-                  <Grid item xs={12} md={6}>
+                {detail.attributes.FeaturedDetail.map((item, index) => (
+                  <Grid item xs={12} md={6} key={index}>
                     <Box bgcolor="#2161CD" p={2} sx={{ borderRadius: 2 }}>
                       <Typography variant="h5" color="white">
                         {item.title}
@@ -155,8 +155,8 @@ const CivilAviationSafetyPage = () => {
               </Grid>
               {/* Stats Circles */}
               <Grid container spacing={3} mt={3}>
-                {detail.attributes.stats.map(item => (
-                  <Grid item xs={12} md={4} p={5}>
+                {detail.attributes.stats.map((item, index) => (
+                  <Grid item xs={12} md={4} p={5} key={index}>
                     <Paper elevation={3} sx={{ backgroundColor: '#2161CD', color: 'white', padding: 3, textAlign: 'center', borderRadius: '50%', height: '150px' }}>
                       {/* Your stat goes here */}
                       <Typography variant="h4" sx={{ mt: 6, fontSize: 42 }}>
@@ -199,8 +199,8 @@ const CivilAviationSafetyPage = () => {
               </Button>
             </Box>
 
-            {detail.attributes.contents.map(item => (
-              <>
+            {detail.attributes.contents.map((item, index) => (
+              <div key={index}>
                 <Typography variant="h6" id={item.id}>
                   {item.title}
                 </Typography>
@@ -209,7 +209,7 @@ const CivilAviationSafetyPage = () => {
                     {item.description}
                   </ReactMarkdown>
                 </Typography>
-              </>
+              </div>
             ))}
           </Grid>
 
@@ -223,8 +223,8 @@ const CivilAviationSafetyPage = () => {
               <Box sx={{ borderBottom: '1px dashed #ccc', mb: 2 }} />
               {/* Table of Contents Links */}
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                {detail.attributes.contents?.map(item => (
-                  <>
+                {detail.attributes.contents?.map((item, index) => (
+                  <div key={index}>
                     <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', lineHeight: 2, fontWeight: 'light', }}>
                       <span>{item.title}</span>
                       <IconButton onClick={() => scrollToBookmark(item.id)} color="primary" sx={{ marginLeft: 'auto' }}>
@@ -232,7 +232,7 @@ const CivilAviationSafetyPage = () => {
                       </IconButton>
                     </Typography>
                     <Divider sx={{ marginBottom: 2, color: 'black' }} />
-                  </>
+                  </div>
                 ))}
               </Box>
             </Paper>
