@@ -44,6 +44,28 @@ async function getPastActivities() {
   return res.json();
 }
 
+const applyStyles = (node) => {
+  if (node.name === 'img' && node.attribs && node.attribs.class) {
+    const classNames = node.attribs.class.split(' ');
+
+    // Check for specific class names and apply styles accordingly
+    if (classNames.includes('image-style-align-left')) {
+      node.attribs.style =
+        (node.attribs.style || '') +
+        'float: left !important; margin-right: 10px !important;'; // Adjust styles as needed
+    } else if (classNames.includes('image-style-align-right')) {
+      node.attribs.style =
+        (node.attribs.style || '') +
+        'float: right !important; margin-left: 10px !important;'; // Adjust styles as needed
+    } else if (classNames.includes('image-style-align-center')) {
+      node.attribs.style =
+        (node.attribs.style || '') +
+        'display: block !important; margin: 0 auto !important;'; // Adjust styles as needed
+    }
+  }
+  return undefined; // Return undefined to apply default behavior
+};
+
 const ActivityDetail = async ({ activityId }) => {
   let { data } = await getData(activityId);
   if (!data) {
@@ -69,10 +91,7 @@ const ActivityDetail = async ({ activityId }) => {
             />
           </div>
           <h4>{date}</h4>
-          <div>
-            {/* <div dangerouslySetInnerHTML={{ __html: description }}></div> */}
-            {ReactHtmlParser(description)}
-          </div>
+          <div>{ReactHtmlParser(description, { transform: applyStyles })}</div>
         </div>
         <div className={styles.activity__Lists}>
           <h3>Other Latest Activities</h3>
