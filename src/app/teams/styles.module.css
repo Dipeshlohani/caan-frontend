@@ -1,0 +1,71 @@
+
+
+/* App.css */
+.teamcontainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 40px;
+  justify-content: center;
+  padding: 230px;
+}
+
+.teamfieldcontainer {
+  text-align: center;
+  border: 1px solid #c7c3c3;
+  background-color: transparent;
+  border-radius: 9px;
+  padding: 10px;
+  max-width: 290px;
+  max-height:300px;
+}
+
+.teamimage img {
+  padding:20px;
+  width: 147px;
+  height: 147px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.textname {
+  font:inter;
+  font-weight: 600;
+  font-size:20px;
+  line-height: 24.2px;
+  font-weight: bold;
+  color: black;
+ 
+}
+
+.textpost {
+  font: inter;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2161CD;
+  font-style: italic;
+  line-height: 34.64px;
+  text-align: center;
+}
+
+.goals {
+  display: none;
+  color: black;
+}
+
+.teamfieldcontainer:hover .goals {
+  display: block;
+  position: relative;
+}
+
+.teamfieldcontainer .goals {
+  display: block;
+  position: absolute;
+  right: -150px; /* Adjust the distance from the left side */
+  top: -230px;
+  background-color: white; /* Set the background color of the rectangle to white */
+  padding: 10px;
+  border: 1px solid black; /* Add a border around the rectangle */
+  border-radius: 5px; /* Optional: Add rounded corners to the rectangle */
+  color: black; /* Set the text color to black */
+}
+/* position:'relative', right:'-150px', top:'-230px' */

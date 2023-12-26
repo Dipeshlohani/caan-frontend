@@ -1,0 +1,57 @@
+{
+  "name": "caan-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-balloon": "^40.2.0",
+    "@ckeditor/ckeditor5-build-classic": "^40.2.0",
+    "@ckeditor/ckeditor5-react": "^6.2.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@meilisearch/instant-meilisearch": "^0.13.6",
+    "@mui/icons-material": "^5.14.14",
+    "@mui/material": "^5.14.14",
+    "@types/react-slick": "^0.23.10",
+    "blitz": "^2.0.0-beta.35",
+    "html-react-parser": "^5.0.10",
+    "marked": "^11.1.0",
+    "next": " 13.4.19",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-html-parser": "^2.0.2",
+    "react-icons": "^4.11.0",
+    "react-instantsearch": "^7.3.0",
+    "react-instantsearch-dom": "^6.40.4",
+    "react-markdown": "^9.0.1",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.29.0",
+    "rehype-raw": "^7.0.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.0.8",
+    "swiper": "^10.3.1",
+    "tabler-icons-react": "^1.56.0"
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.4",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18",
+    "@types/styled-components": "^5.1.28",
+    "babel-plugin-styled-components": "^2.1.4",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.4",
+    "sass": "^1.69.3",
+    "typescript": "^5.2.2"
+  }
+}
