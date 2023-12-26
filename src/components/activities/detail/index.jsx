@@ -5,6 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import ReactHtmlParser from 'react-html-parser';
 
 import styles from './activitydetail.module.css';
+import Link from 'next/link';
 
 async function getData(id) {
   var options = {
@@ -98,23 +99,29 @@ const ActivityDetail = async ({ activityId }) => {
           <h3>Other Latest Activities</h3>
           <div className={styles.activity__Lists__ItemWrapper}>
             {pastActivities.data.map((item) => (
-              <div
-                className={styles.activity__Lists__Item}
-                key={item.attributes.name}
+              <Link
+                href={`/activities/${item.attributes.slug}`}
+                style={{ textDecoration: 'none' }}
               >
-                <div className={styles.activity__Lists__Image}>
-                  <Image
-                    src={
-                      process.env.HOST +
-                      item.attributes.img_url.data.attributes.url
-                    }
-                    height={70}
-                    width={100}
-                    alt="img"
-                  />
+                {console.log(item)}
+                <div
+                  className={styles.activity__Lists__Item}
+                  key={item.attributes.name}
+                >
+                  <div className={styles.activity__Lists__Image}>
+                    <Image
+                      src={
+                        process.env.HOST +
+                        item.attributes.img_url.data.attributes.url
+                      }
+                      height={70}
+                      width={100}
+                      alt="img"
+                    />
+                  </div>
+                  <div className="">{item.attributes.name}</div>
                 </div>
-                <div className="">{item.attributes.name}</div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
