@@ -71,12 +71,13 @@ const ActivityDetail = async ({ activityId }) => {
   if (!data) {
     throw new Error('Activity not found');
   }
-  data = data[0]?.attributes;
+  data = data.length > 0 ? data[0]?.attributes : data.attributes;
   let pastActivities = await getPastActivities();
-  let img_url = process.env.HOST + data.img_url?.data.attributes.url;
-  let date = data.date;
-  let description = data.description;
-  let title = data.name;
+  let img_url = process.env.HOST + data?.img_url?.data.attributes.url;
+  let date = data?.date;
+  let description = data?.description;
+  let title = data?.name;
+
   return (
     <div className="container">
       <div className={styles.activity__Container}>

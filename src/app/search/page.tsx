@@ -5,7 +5,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Layout from "@/components/layout";
 import CallToAction from '@/components/cta';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
-import { InstantSearch } from 'react-instantsearch';
+import { InstantSearch, Index } from 'react-instantsearch';
 import { useHits } from 'react-instantsearch';
 
 import SearchBar from "./SearchBar"
@@ -15,8 +15,13 @@ import Link from 'next/link';
 
 const searchClient = instantMeiliSearch(
   'http://localhost:7700/', // Host
-  'SDj-iFrEiDstQrijYQoHdyk2aKxT8rpvONyME24a-kk', // API key
-  { finitePagination: true }
+  'SDj-iFrEiDstQrijYQoHdyk2aKxT8rpvONyME24a-kk',
+  {
+    placeholderSearch: false,
+    future: {
+      preserveSharedStateOnUnmount: false
+    }
+  }
 )
 
 const Search = () => {
@@ -34,13 +39,17 @@ const Search = () => {
           {/* Search Bar with Index Dropdown */}
           <SearchBar onIndexChange={handleIndexChange} />
           {/* Search Results Header */}
-          <Typography variant="h5" gutterBottom>
-            Showing search results for - {searchQuery}
-          </Typography>
+
           {/* Search Results */}
           <Paper elevation={0} sx={{ p: 2 }}>
             <CustomHits />
           </Paper>
+          <Index indexName="document-category">
+            <CustomHits />
+          </Index>
+          <Index indexName="about-us">
+            <CustomHits />
+          </Index>
           {/* Dotted Divider Line */}
           <Divider sx={{ mb: 2 }} />
         </InstantSearch>
@@ -55,7 +64,7 @@ function CustomHits(props) {
 
   const getLinkPath = (hit) => {
     if (hit._meilisearch_id.includes('activity')) {
-      return `/activities/${hit.id}`;
+      return `/activities/${hit.slug}`;
     }
     if (hit._meilisearch_id.includes('about-us')) {
       return `/about-us`;

@@ -6,7 +6,7 @@ export default async function AboutActivity({ params }: { params: { activityId: 
   return (
     <div>
       <Layout>
-        <ActivityDetail activityId={params.activityId} />
+        {params.activityId !== 'null' ? <ActivityDetail activityId={params.activityId} /> : ""}
         <CallToAction />
       </Layout>
     </div>
