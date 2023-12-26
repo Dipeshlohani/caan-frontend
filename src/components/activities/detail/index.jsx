@@ -46,7 +46,7 @@ async function getPastActivities() {
 }
 
 const applyStyles = (node) => {
-  if (node.name === 'img' && node.attribs && node.attribs.class) {
+  if (node.name === 'figure' && node.attribs && node.attribs.class) {
     const classNames = node.attribs.class.split(' ');
 
     // Check for specific class names and apply styles accordingly
