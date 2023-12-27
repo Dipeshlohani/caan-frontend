@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import ActivityBox from "./ActivityBox";
 import { Box, Container } from "@mui/material";
 import Activities from "./Activities";
-import NewsLetter from "./NewsLetter";
 import CallToAction from "@/components/cta";
 import Layout from "@/components/layout";
 // import Footer from "./Footer";

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   AppBar,
@@ -18,26 +18,26 @@ import {
   FormControl,
   InputAdornment,
   TextField,
-} from '@mui/material';
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import PropTypes from 'prop-types';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '../../assets/Icons/searchIcon';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Logo from '../../assets/images/logo.png';
+} from "@mui/material";
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "../../assets/Icons/searchIcon";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Logo from "../../assets/images/logo.png";
 
-import ClearIcon from '@mui/icons-material/Clear';
+import ClearIcon from "@mui/icons-material/Clear";
 
 const navItems = [
-  { name: 'Home', url: '/' },
-  { name: 'About Us', url: '/about-us' },
-  { name: 'Activities', url: '/activities' },
-  { name: 'Operation & Safety', url: '/safety' },
-  { name: 'Documents', url: '/documents' },
-  { name: 'Forms', url: '/forms' },
-  { name: 'Contact', url: '/contact-us' },
+  { name: "Home", url: "/" },
+  { name: "About Us", url: "/about-us" },
+  { name: "Activities", url: "/activities" },
+  { name: "Operation & Safety", url: "/safety" },
+  { name: "Documents", url: "/documents" },
+  { name: "Our Team", url: "/teams" },
+  { name: "Contact", url: "/contact-us" },
 ];
 
 const Header = () => {
@@ -61,7 +61,7 @@ const Header = () => {
 
     return React.cloneElement(children, {
       elevation: trigger ? 4 : 0,
-      className: trigger ? 'scrollStart' : 'scrollStop',
+      className: trigger ? "scrollStart" : "scrollStop",
     });
   }
 
@@ -69,10 +69,10 @@ const Header = () => {
     window: PropTypes.func,
   };
 
-  const [showClearIcon, setShowClearIcon] = useState('none');
+  const [showClearIcon, setShowClearIcon] = useState("none");
 
   const handleChange = (event) => {
-    setShowClearIcon(event.target.value === '' ? 'none' : 'flex');
+    setShowClearIcon(event.target.value === "" ? "none" : "flex");
   };
 
   const handleClear = () => {};
@@ -89,7 +89,7 @@ const Header = () => {
               <Stack
                 direction="row"
                 spacing={2}
-                sx={{ display: { xs: 'none', md: 'block' } }}
+                sx={{ display: { xs: "none", md: "block" } }}
               >
                 {navItems.map((item) => (
                   <Link key={item.url} href={item.url}>
@@ -110,7 +110,7 @@ const Header = () => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleMenuDrawer}
-                sx={{ mr: 2, display: { md: 'none' } }}
+                sx={{ mr: 2, display: { md: "none" } }}
               >
                 <MenuIcon />
               </IconButton>
@@ -120,7 +120,7 @@ const Header = () => {
                 color="inherit"
                 // onClick={handleSearchDrawer}
               >
-                <Link href={'/search'}>
+                <Link href={"/search"}>
                   <SearchIcon />
                 </Link>
               </IconButton>
@@ -135,9 +135,9 @@ const Header = () => {
         >
           <Box
             sx={{
-              backgroundColor: 'white',
-              borderRadius: '15px',
-              padding: '1rem',
+              backgroundColor: "white",
+              borderRadius: "15px",
+              padding: "1rem",
             }}
           >
             <Container maxWidth="sm">
@@ -173,26 +173,26 @@ const Header = () => {
           open={mobileOpen}
           onClose={handleMenuDrawer}
           sx={{
-            display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { width: 240 },
+            display: { xs: "block", md: "none" },
+            "& .MuiDrawer-paper": { width: 240 },
           }}
         >
           <Stack
             direction="column"
             spacing={2}
-            sx={{ textAlign: 'center', padding: '1.5rem 0' }}
+            sx={{ textAlign: "center", padding: "1.5rem 0" }}
           >
             <Box sx={{ flexGrow: 1 }}>
               <Image src={Logo} alt="CAAN" width={200} height={45} />
             </Box>
             <Divider />
-            <List sx={{ mt: '0!important' }}>
+            <List sx={{ mt: "0!important" }}>
               {navItems.map((item) => (
                 <ListItem key={item.name} disablePadding>
                   <ListItemButton
                     component={Link}
                     to={item.url}
-                    sx={{ textAlign: 'center' }}
+                    sx={{ textAlign: "center" }}
                   >
                     <ListItemText primary={item.name} />
                   </ListItemButton>

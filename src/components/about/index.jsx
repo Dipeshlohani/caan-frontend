@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Box,
   Typography,
@@ -7,15 +7,15 @@ import {
   Card,
   Grid,
   Container,
-} from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+} from "@mui/material";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const AboutUs = ({ about_us }) => {
   return (
     <Box
       sx={{
-        pb: { xs: '3rem', md: '4.5rem' },
-        pt: { xs: '4rem', md: '8.75rem' },
+        pb: { xs: "3rem", md: "4.5rem" },
+        pt: { xs: "4rem", md: "8.75rem" },
       }}
     >
       <Container maxWidth="lg">
@@ -24,15 +24,15 @@ const AboutUs = ({ about_us }) => {
             <Grid item xs={12} md={5.5}>
               <img
                 src={
-                  'http://localhost:1337' +
+                  "http://localhost:1337" +
                   about_us.img_url?.data.attributes.url
                 }
                 alt=""
                 style={{
-                  borderRadius: '0.938rem',
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
+                  borderRadius: "0.938rem",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
               />
             </Grid>

@@ -30,6 +30,7 @@ const ImportantLinks = ({ links }) => {
           container
           rowSpacing={{ xs: 3, md: 5 }}
           columnSpacing={{ xs: 2.5, md: 4 }}
+          
         >
           {links.map((link, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -38,7 +39,8 @@ const ImportantLinks = ({ links }) => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between"
+                  justifyContent: "space-between",
+                  height:"110px"
                 }}
               >
                 <CardHeader title={link.title}></CardHeader>

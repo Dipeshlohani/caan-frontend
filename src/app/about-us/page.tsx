@@ -109,18 +109,28 @@ const AboutUs = () => {
             <Typography variant="h4" sx={{ marginBottom: '10px', color: 'black', fontWeight: 'bold' }}>
               Message from Department Head
             </Typography>
-            <Typography className={rammetto_one.className} sx={{ fontFamily: 'Rammetto One', fontWeight: '400', fontSize: '50px', color: '#DFDDDD' }}>
-              “
-            </Typography>
+            <Typography
+                className={rammetto_one.className}
+                sx={{
+                  fontFamily: 'Rammetto One',
+                  fontWeight: '600', 
+                  fontSize: '90px', 
+                  color: '#DFDDDD',
+                  marginBottom: '-40px'
+                }}
+              >
+                “
+              </Typography>
+
             <Typography variant="body1" sx={{ color: 'black', lineHeight: '41.28px' }}>
               {aboutUsData.chairman_msg}
             </Typography>
-            <Typography className={seaweed_script.className} variant="subtitle1" sx={{ position: 'relative', right: '-260px', color: '#9C9C9C', fontFamily: 'Seaweed Script', fontSize: '20px', padding: '10px 300px' }}>
-              {aboutUsData.chairman_name}
+            <Typography className={seaweed_script.className} variant="subtitle1" sx={{ position: 'relative', right: '-330px', color: '#9C9C9C', fontFamily: 'Seaweed Script', fontSize: '25px', padding: '40px 300px' }}>
+             <>-</> {aboutUsData.chairman_name}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} style={{ position: 'relative', padding: '70px 0' }}>
-            <div style={{ background: '#2161CD', width: '100%', height: 'auto', position: 'absolute', zIndex: -1, borderRadius: '9px', padding: '230px 0' }} />
+            <div style={{ background: '#2161CD',boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', width: '100%', height: 'auto', position: 'absolute', zIndex: -1, borderRadius: '9px', padding: '230px 0' }} />
             <img src={aboutUsData.chairman_img_url} alt="image" style={{ width: '100%', height: '560px', position: 'relative', top: '-100px' }} />
           </Grid>
         </Grid>
@@ -143,16 +153,28 @@ const AboutUs = () => {
               onMouseLeave={() => setHoveredMember(null)}
               sx={{ position: 'relative' }}
             >
-              <Box sx={{ border: "1px solid #C7C7C7", padding: 5, borderRadius: 4, display: "flex", flexDirection: "column", alignItems: "center", position: 'relative' }}>
-                <div style={{ width: "100px", height: "100px", borderRadius: "50%", overflow: "hidden", margin: "0 auto" }}>
+              <Box sx={{ border: "1px solid #C7C7C7",height:"210px",width: "200px", padding: 5, borderRadius: 4, display: "flex", flexDirection: "column", alignItems: "center", position: 'relative' }}>
+                <div style={{ width: "120px", height: "120px", borderRadius: "50%", overflow: "hidden", margin: "0 auto" }}>
                   <img src={`http://localhost:1337${teamItem.attributes.img_url.data.attributes.url}`} alt="image" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
                 <Typography variant="h5" sx={{ color: "black", marginTop: 2 }}>
                   {teamItem.attributes.name}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ color: "blue" }}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    marginTop: '4px',
+                    color: "#2161CD",
+                    fontWeight: 'normal',
+                    fontSize:'16px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontStyle: 'italic',
+                    letterSpacing: '0.05rem'
+                  }}
+                >
                   {teamItem.attributes.designation}
                 </Typography>
+
               </Box>
               {hoveredMember === index && (
                 <Box

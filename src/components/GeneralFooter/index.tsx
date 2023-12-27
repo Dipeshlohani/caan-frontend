@@ -1,11 +1,13 @@
 import React from "react";
+import Link from "next/link";
+
 import {
   Box,
   Container,
   Grid,
   Divider,
   Typography,
-  Stack,
+  Stack
 } from "@mui/material";
 import FacebookIcon from "../../assets/Icons/facebookIcon";
 import TwitterIcon from "../../assets/Icons/twitterIcon";
@@ -20,13 +22,16 @@ const styles = {
     color: "#e0e0e0",
     cursor: "pointer",
     lineHeight: "30px",
-    fontWeight: "600",
+    fontWeight: "200",
+    textDecoration:"none"
+
   },
   contentRow: {
     display: "flex",
     flexDirection: "column",
     "& .MuiButton-root": {
       justifyContent: "flex-start",
+      width: '100%',
     },
   },
 };
@@ -71,18 +76,27 @@ const GeneralFooter = () => {
                   sx={styles.footerTextHeading}
                   style={{
                     lineHeight: "30px",
-                    fontWeight: "600",
+                    fontWeight: "200",
                     color: "#e0e0e0",
                   }}
                 >
                   Mauris fringilla venenatis nisi nec ultrices. Nam iaculis tempus sem sit amet convallis. Sed vel sapien ultricies, congue lacus a, venenatis tortor.Ut non odio lacus.
                 </Typography>
                 <Stack direction="row" alignItems="center" spacing={4} pt={3}>
-                  <FacebookIcon />
-                  <TwitterIcon />
-                  <YoutubeIcon />
-                  <LinkedInIcon />
-                </Stack>
+      <Box sx={{ bgcolor: 'white', borderRadius: '10%', padding: '5px' }}>
+       <Link href="https://www.facebook.com" target="blank"><FacebookIcon /></Link> 
+      </Box>
+      <Box sx={{ bgcolor: 'white', borderRadius: '10%', padding: '5px' }}>
+      <Link href="https://www.twitter.com" target="blank"> <TwitterIcon /></Link> 
+      </Box>
+      <Box sx={{ bgcolor: 'white', borderRadius: '10%', padding: '5px' }}>
+       <Link href="https://www.youtube.com" target="blank">  <YoutubeIcon /></Link>
+      </Box>
+      <Box sx={{ bgcolor: 'white', borderRadius: '10%', padding: '5px' }}>
+         <Link href="https://www.linkedin.com" target="blank"><LinkedInIcon />   </Link>
+
+      </Box>
+    </Stack>
               </Box>
             </Grid>
             <Grid
@@ -92,41 +106,51 @@ const GeneralFooter = () => {
               order={{ xs: 1, md: 2 }}
               display="flex"
               justifyContent="space-between"
+              minWidth="800px"
+             
             >
               <Grid container>
                 <Grid item xs={6} md={4} sx={styles.contentRow}>
                   <Typography
-                    pb={2}
-                    variant="h6"
-                    noWrap
-                    component="a"
-                    href="/"
-                    sx={{
-                      mr: 2,
-                      display: { xs: "none", lg: "flex" },
-                      fontWeight: 700,
-                      color: "white",
-                      textDecoration: "none",
+                     pb={2}
+                     variant="h6"
+                     noWrap
+                     component="a"
+                     href="/"
+                     sx={{
+                       mr: 2,
+                       display: { xs: 'none', lg: 'flex' },
+                       fontWeight: 700,
+                       color: 'white',
+                       textDecoration: 'none',
                     }}
                   >
                     Most Viewed
                   </Typography>
 
-                  <Typography variant="body1" sx={styles.footerTextAction}>
-                    Our Team
+                  <Typography variant="body1">
+                  <Link href="/teams"  style={styles.footerTextAction }  >
+                  Our Team
+                  </Link>
                   </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
+                  <Typography variant="body1" >
+                    <Link href="/about-us" style={styles.footerTextAction }>
                     Who we Are
+                  </Link>
                   </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
+                  <Typography variant="body1" >
+                    <Link href="/activities" style={styles.footerTextAction }>
                     What We Do
+                  </Link>
+                  </Typography>
+                  <Typography variant="body1" >
+                     <Link href="/safety" style={styles.footerTextAction }>
+                     Operation & Safety
+                  </Link>
                   </Typography>
                   <Typography variant="body1" sx={styles.footerTextAction}>
-                    Operation & Safety
-                  </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
-                    Personal Licensing
-                  </Typography>
+                     Personal Licensing
+                   </Typography>
                 </Grid>
                 <Grid item xs={6} md={5} sx={styles.contentRow}>
                   <Typography
@@ -159,37 +183,47 @@ const GeneralFooter = () => {
                   </Typography>
                 </Grid>
 
-                <Grid item xs={6} md={3}>
-                  <Typography
-                    pb={2}
-                    variant="h6"
-                    noWrap
-                    component="a"
-                    href="/"
-                    sx={{
-                      mr: 2,
-                      display: { xs: "none", lg: "flex" },
-                      fontWeight: 700,
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
+                <Grid item xs={6} md={3} sx={{marginLeft:'-100px', minWidth:'280px'}}>
+      <Typography
+        pb={2}
+        variant="h6"
+        noWrap
+        component="a"
+        href="/"
+        sx={{
+          mr: 2,
+          display: { xs: 'none', lg: 'flex' },
+          fontWeight: 700,
+          color: 'white',
+          textDecoration: 'none',
+        }}
+      >
                     Documents
                   </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
+                  <Typography variant="body1" >
+                    <Link href="/documents" style={styles.footerTextAction }>
                     Civil Aviation Act,2015
+                  </Link>
                   </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
-                    Civil Aviation Authority Act
+                  <Typography variant="body1" >
+                     <Link href="/documents" style={styles.footerTextAction }>
+                     Civil Aviation Authority Act
+                  </Link>
                   </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
+                  <Typography variant="body1" >
+                    <Link href="/documents" style={styles.footerTextAction }>
                     Civil Aviation Security Rule 2016
+                    </Link>
                   </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
-                    Civil Aviation Security Rule - English
+                  <Typography variant="body1" >
+                     <Link href="/documents" style={styles.footerTextAction }>
+                     Civil Aviation Security Rule - English 
+                     </Link>
                   </Typography>
-                  <Typography variant="body1" sx={styles.footerTextAction}>
-                    Various SOPs
+                  <Typography variant="body1" >
+                    <Link href="/documents" style={styles.footerTextAction }>
+                    Various SOPs 
+                     </Link>
                   </Typography>
                 </Grid>
               </Grid>

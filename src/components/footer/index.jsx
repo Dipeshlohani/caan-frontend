@@ -9,23 +9,23 @@ import {
   Box,
   Stack,
   Link,
-} from '@mui/material';
-import React from 'react';
+} from "@mui/material";
+import React from "react";
 
 const Footer = ({ content }) => {
   const { brand, socials, menu1, menu2, menu3, copyright } = content;
   return (
     <Box
       sx={{
-        pb: { xs: '1.5rem', md: '2.5rem' },
-        pt: { xs: '4rem', md: '7rem' },
+        pb: { xs: "1.5rem", md: "2.5rem" },
+        pt: { xs: "4rem", md: "7rem" },
         backgroundColor: (theme) =>
-          theme.palette.mode === 'dark'
+          theme.palette.mode === "dark"
             ? theme.palette.grey.dark
             : theme.palette.primary.main,
-        color: (theme) => (theme.palette.mode === 'dark' ? 'black' : 'white'),
-        '.MuiLink-root': {
-          color: (theme) => (theme.palette.mode === 'dark' ? 'black' : 'white'),
+        color: (theme) => (theme.palette.mode === "dark" ? "black" : "white"),
+        ".MuiLink-root": {
+          color: (theme) => (theme.palette.mode === "dark" ? "black" : "white"),
         },
       }}
     >
@@ -128,7 +128,7 @@ const Footer = ({ content }) => {
           <Grid item xs={12}>
             <Grid container spacing={{ xs: 3, sm: 4, md: 6 }}>
               <Grid item xs={12}>
-                <Divider sx={{ borderColor: '#CFCFCF' }} />
+                <Divider sx={{ borderColor: "#CFCFCF" }} />
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="body1" textAlign="center">

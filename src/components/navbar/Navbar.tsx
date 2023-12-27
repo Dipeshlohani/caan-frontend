@@ -19,7 +19,7 @@ const pages = [
   { id: 3, page: "Activities", path: "/activities" },
   { id: 4, page: "Operation & Safety", path: "#" },
   { id: 5, page: "Documents", path: "/documents" },
-  { id: 6, page: "Forms", path: "/forms" },
+  { id: 6, page: "Our Teams", path: "/teams" },
   { id: 7, page: "Contact", path: "/contact-us" },
 ];
 
