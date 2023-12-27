@@ -58,8 +58,6 @@ const GeneralFooter = () => {
                   <Typography
                     variant="h6"
                     noWrap
-                    component="a"
-                    href="/"
                     sx={{
                       mr: 2,
                       display: { xs: "none", lg: "flex" },
@@ -115,8 +113,6 @@ const GeneralFooter = () => {
                      pb={2}
                      variant="h6"
                      noWrap
-                     component="a"
-                     href="/"
                      sx={{
                        mr: 2,
                        display: { xs: 'none', lg: 'flex' },
@@ -157,8 +153,6 @@ const GeneralFooter = () => {
                     pb={2}
                     variant="h6"
                     noWrap
-                    component="a"
-                    href="/"
                     sx={{
                       mr: 2,
                       display: { xs: "none", lg: "flex" },
@@ -188,8 +182,6 @@ const GeneralFooter = () => {
         pb={2}
         variant="h6"
         noWrap
-        component="a"
-        href="/"
         sx={{
           mr: 2,
           display: { xs: 'none', lg: 'flex' },
