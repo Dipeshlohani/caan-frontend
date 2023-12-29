@@ -80,8 +80,8 @@ function CustomHits(props) {
       {hits.map((hit) => (
         <Link href={getLinkPath(hit)} style={{ textDecoration: 'none' }}>
           <Box display="flex" alignItems="center" mb={2}>
-            <img src={'http://localhost:1337' + hit?.img_url?.url} alt="Result 1" style={{ width: 100, height: 90, marginRight: 2 }} />
-            <Typography variant="body1" sx={{ p: 3 }}>
+            <img src={'http://localhost:1337' + hit?.img_url?.url} alt="Result 1" style={{ width: 100, height: 90, marginRight: 2, objectFit: 'cover' }} />
+            <Typography variant="body1" sx={{ p: 3, color: "black" }} >
               {hit.description ? hit.description?.substr(0, 150) : hit.name}
               {hit?.document?.map(doc => {
                 <>{doc.name}</>
