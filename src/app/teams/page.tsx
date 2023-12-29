@@ -107,7 +107,11 @@ const OurTeam = () => {
                 <Typography variant="h5" sx={{ color: "black", marginTop: 2 }}>
                   {teamItem.name}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ color: "blue" }}>
+                <Typography variant="subtitle1" sx={{ color: "#2161CD",
+                    fontWeight: 'bold',
+                    fontSize:'14px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontStyle: 'italic'}}>
                   {teamItem.designation}
                 </Typography>
               </Box>
@@ -198,7 +202,11 @@ const OurTeam = () => {
                 <Typography variant="h5" sx={{ color: "black", marginTop: 2 }}>
                   {teamItem.name}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ color: "blue" }}>
+                <Typography variant="subtitle1" sx={{ color: "#2161CD",
+                    fontWeight: 'bold',
+                    fontSize:'14px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontStyle: 'italic'}}>
                   {teamItem.designation}
                 </Typography>
               </Box>
@@ -292,7 +300,11 @@ const OurTeam = () => {
                 <Typography variant="h5" sx={{ color: "black", marginTop: 2 }}>
                   {teamItem.name}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ color: "blue" }}>
+                <Typography variant="subtitle1" sx={{ color: "#2161CD",
+                    fontWeight: 'bold',
+                    fontSize:'14px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontStyle: 'italic'}}>
                   {teamItem.designation}
                 </Typography>
               </Box>
@@ -386,7 +398,12 @@ const OurTeam = () => {
                 <Typography variant="h5" sx={{ color: "black", marginTop: 2 }}>
                   {teamItem.name}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ color: "blue" }}>
+                <Typography variant="subtitle1" sx={{ color: "#2161CD",
+                    fontWeight: 'bold',
+                    fontSize:'14px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontStyle: 'italic'
+                    }}>
                   {teamItem.designation}
                 </Typography>
               </Box>

@@ -46,10 +46,23 @@ const ContactUsPage = () => {
               <Typography variant="h5" gutterBottom>
                 Contact Details
               </Typography>
-              <Typography><PlaceIcon /> Sinamangal, Airport Side, Bagmati Province, Nepal</Typography>
-              <Typography><PhoneOutlinedIcon /> 0123-45678</Typography>
-              <Typography><MailOutlinedIcon /> contact@website.com</Typography>
-              <Typography><LanguageOutlinedIcon /> www.website.com</Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <PlaceIcon sx={{ color: "#2161CD" }} />
+                <Typography sx={{ lineHeight: '1.5' }}>Sinamangal, Airport Side, Bagmati Province, Nepal</Typography>
+
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <PhoneOutlinedIcon sx={{ color: "#2161CD" }} />
+                <Typography sx={{ lineHeight: '3.5' }}>0123-45678</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <MailOutlinedIcon sx={{ color: "#2161CD" }} />
+                <Typography sx={{ lineHeight: '3.5' }}>contact@website.com</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <LanguageOutlinedIcon sx={{ color: "#2161CD" }} />
+                <Typography sx={{ lineHeight: '3.5' }}>www.website.com</Typography>
+              </Box>
             </Paper>
             <Paper elevation={1} sx={{ padding: 3, margin: 3 }}>
               <Typography variant="h5" gutterBottom>
@@ -58,14 +71,29 @@ const ContactUsPage = () => {
               {/* Add social media logos or icons here */}
               {/* Example: */}
               <Box sx={{ display: 'flex', gap: 2 }}>
-                <FacebookIcon />
-                <TwitterIcon />
-                <InstagramIcon />
+                <FacebookIcon style={{ backgroundColor: 'blue', color: 'white', padding: '5px', borderRadius: '50%', overflow: 'hidden' }}>
+                  <div style={{ backgroundColor: 'white', borderRadius: '50%', width: '100%', height: '100%' }}></div>
+                </FacebookIcon>
+                <TwitterIcon style={{ backgroundColor: 'blue', color: 'white', padding: '5px', borderRadius: '50%', overflow: 'hidden' }}>
+                  <div style={{ backgroundColor: 'white', borderRadius: '50%', width: '100%', height: '100%' }}></div>
+                </TwitterIcon>
+                <InstagramIcon style={{ backgroundColor: 'blue', color: 'white', padding: '5px', borderRadius: '50%', overflow: 'hidden' }}>
+                  <div style={{ backgroundColor: 'white', borderRadius: '50%', width: '100%', height: '100%' }}></div>
+                </InstagramIcon>
                 {/* Add more social media logos */}
               </Box>
+
+
             </Paper>
           </Grid>
+
+
+
         </Grid>
+
+  
+
+export default ContactUsPage;
 
         {/* Google Map */}
         <Box sx={{ mt: 3 }}>
@@ -76,7 +104,7 @@ const ContactUsPage = () => {
             height="400"
             frameBorder="0"
             style={{ border: 0, margin: "50px 0" }}
-            src="https://www.google.com/maps/embed?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&q=CAAN&t=&z=10&ie=UTF8&iwloc=&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28261.153619257002!2d85.31669647431637!3d27.6973896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19b4e8269a37%3A0xaeee50daced235d0!2scivil%20aviation%20authority%20of%20nepal!5e0!3m2!1sen!2snp!4v1703491017480!5m2!1sen!2snp"
             allowFullScreen
           />
 

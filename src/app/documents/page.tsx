@@ -6,6 +6,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import CallToAction from '@/components/cta';
 import Subscribe from '@/components/subscribe/Subscribe';
 import Layout from '@/components/layout';
+import Link from 'next/link';
 interface Document {
   id: number;
   name: string;
@@ -35,12 +36,13 @@ interface DocumentCategory {
   showBoxes?: boolean;
 }
 
+
 const importantLinks = [
-  "Operation & Safety",
-  "Personal Licensing",
-  "Who We Are",
-  "Rules & Regulations",
-  "E-Services & Forms",
+ {name:"Operation & Safety", link: "/safety"},
+  {name:"Personal Licensing", link:"#"},
+  {name:"Who We Are", link:"/about-us"},
+  {name:"Rules & Regulations",link:"#"},
+  {name:"E-Services & Forms",link:"/forms"}
 ];
 
 const DocumentPage = () => {
@@ -162,14 +164,22 @@ const DocumentPage = () => {
               Important Links
             </Typography>
             {importantLinks.map((link, index) => (
-              <>
-                <Box key={index} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: "10px 0", fontWeight: 'bold' }}>
-                  <Typography variant="body1">{link}</Typography>
-                  <div>{`>`}</div>
-                </Box>
-                <Divider sx={{ width: '100%', mb: '10px' }} />
-              </>
-            ))}
+      <div key={index}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: "10px 0",
+            fontWeight: 'bold'
+          }}
+        >
+          <Typography variant="body1">{link.name}</Typography>
+          <Link href={link.link} style={{textDecoration:"none"}}>{`>`}</Link>
+        </Box>
+        <Divider sx={{ width: '100%', mb: '10px' }} />
+      </div>
+    ))}
           </Box>
         </Grid>
       </Grid>
